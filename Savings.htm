@@ -626,6 +626,14 @@ a.vOl2SKNc.rTCWUL5G {
 })();
 </script>
 
+<style id="static-mobile-scroll-fix">
+/* Captured modal styles disable root overscroll; restore vertical touch scrolling. */
+html[data-static-page],
+html[data-static-page] body {
+  overscroll-behavior-x: none !important;
+  overscroll-behavior-y: auto !important;
+}
+</style>
 </head>
 
 <body class="pointer-events" data-focus-visible="true">
