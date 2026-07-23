@@ -42,6 +42,7 @@ jobs:
             --exclude README_HOSTING.md \
             --exclude netlify.toml
           sed -i "s/__BUILD_VERSION__/${GITHUB_SHA}/g" _site/sw.js
+          node .github/scripts/version-assets.mjs _site "${GITHUB_SHA}"
           printf '{"run":"%s","sha":"%s","deployedAt":"%s"}\n' \
             "${GITHUB_RUN_NUMBER}" \
             "${GITHUB_SHA}" \

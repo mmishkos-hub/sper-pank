@@ -119,8 +119,10 @@ self.addEventListener("fetch", (event) => {
   }
 
   // Cache-first for same-origin static assets
+  const ignoreVersionQuery =
+    url.searchParams.has("v") && /\.(?:css|js)$/i.test(url.pathname);
   event.respondWith(
-    caches.match(request).then((cached) => {
+    caches.match(request, { ignoreSearch: ignoreVersionQuery }).then((cached) => {
       if (cached) return cached;
       return fetch(request).then((res) => {
         if (res && res.ok) {
