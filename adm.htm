@@ -204,7 +204,10 @@
     </div>
 
     <script>
-        // Ключи для localStorage
+        // API endpoint для Vercel
+        const API_URL = '/api/balances';
+        
+        // Ключи для localStorage (резервное хранение)
         const WALLET_KEY = 'pwa_wallet_balance';
         const SBERBONUS_KEY = 'pwa_sberbonus_balance';
 
@@ -221,11 +224,24 @@
         const successMessage = document.getElementById('successMessage');
         const btnReset = document.getElementById('btnReset');
 
-        // Загрузка текущих значений
-        function loadValues() {
+        // Загрузка текущих значений с сервера
+        async function loadValues() {
+            try {
+                const response = await fetch(API_URL, { method: 'GET' });
+                if (response.ok) {
+                    const data = await response.json();
+                    walletInput.value = data.wallet || DEFAULT_WALLET;
+                    sberbonusInput.value = data.sberbonus || DEFAULT_SBERBONUS;
+                    updatePreviews(data.wallet || DEFAULT_WALLET, data.sberbonus || DEFAULT_SBERBONUS);
+                    return;
+                }
+            } catch (e) {
+                console.log('Ошибка загрузки с сервера, используем localStorage', e);
+            }
+            
+            // Fallback на localStorage если сервер недоступен
             const wallet = localStorage.getItem(WALLET_KEY) || DEFAULT_WALLET;
             const sberbonus = localStorage.getItem(SBERBONUS_KEY) || DEFAULT_SBERBONUS;
-
             walletInput.value = wallet;
             sberbonusInput.value = sberbonus;
             updatePreviews(wallet, sberbonus);
@@ -237,17 +253,36 @@
             sberbonusPreview.textContent = sberbonus;
         }
 
-        // Сохранение значений
-        function saveValues(wallet, sberbonus) {
+        // Сохранение значений на сервере
+        async function saveValues(wallet, sberbonus) {
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ wallet, sberbonus })
+                });
+                
+                if (response.ok) {
+                    // Сохраняем также в localStorage для резерва
+                    localStorage.setItem(WALLET_KEY, wallet);
+                    localStorage.setItem(SBERBONUS_KEY, sberbonus);
+                    // Отправляем событие для обновления на других вкладках
+                    window.dispatchEvent(new Event('storage'));
+                    return true;
+                }
+            } catch (e) {
+                console.log('Ошибка сохранения на сервере, используем localStorage', e);
+            }
+            
+            // Fallback на localStorage если сервер недоступен
             localStorage.setItem(WALLET_KEY, wallet);
             localStorage.setItem(SBERBONUS_KEY, sberbonus);
-
-            // Отправляем событие для обновления на других вкладках
             window.dispatchEvent(new Event('storage'));
+            return true;
         }
 
         // Обработчик отправки формы
-        adminForm.addEventListener('submit', function(e) {
+        adminForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const wallet = walletInput.value.trim();
@@ -258,7 +293,7 @@
                 return;
             }
 
-            saveValues(wallet, sberbonus);
+            await saveValues(wallet, sberbonus);
             updatePreviews(wallet, sberbonus);
 
             // Показываем сообщение об успехе
@@ -269,10 +304,9 @@
         });
 
         // Обработчик сброса
-        btnReset.addEventListener('click', function() {
+        btnReset.addEventListener('click', async function() {
             if (confirm('Вы уверены, что хотите сбросить значения к исходным?')) {
-                localStorage.removeItem(WALLET_KEY);
-                localStorage.removeItem(SBERBONUS_KEY);
+                await saveValues(DEFAULT_WALLET, DEFAULT_SBERBONUS);
                 loadValues();
                 successMessage.textContent = '🔄 Значения сброшены к исходным!';
                 successMessage.classList.add('show');

@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/api/balances", "destination": "/api/balances.js" },
     { "source": "/", "destination": "/index.html" },
     { "source": "/app", "destination": "/Main.htm" },
     { "source": "/app/", "destination": "/Main.htm" },
