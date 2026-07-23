@@ -8,20 +8,27 @@
     style.id = "joke-app-banner-styles";
     style.textContent =
       "#joke-app-banner{" +
-      "position:fixed;inset:0 0 auto 0;z-index:1000;" +
+      "position:relative;" +
       "display:flex;align-items:center;justify-content:center;gap:10px;" +
-      "box-sizing:border-box;min-height:48px;padding:10px 16px;" +
+      "box-sizing:border-box;width:100%;min-height:64px;margin-top:32px;padding:16px;" +
       "background:#c1121f;color:#fff;" +
       "font:700 15px/1.35 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;" +
       "letter-spacing:.01em;text-align:center;" +
-      "box-shadow:0 2px 8px rgba(64,0,6,.32)" +
       "}" +
       "#joke-app-banner .joke-app-banner__mark{" +
       "flex:0 0 auto;font-size:20px;line-height:1" +
       "}" +
       "#joke-app-banner strong{font-weight:800}" +
+      "@media(max-width:1199px){" +
+      "#joke-app-banner.joke-app-banner--with-nav{" +
+      "padding-bottom:calc(80px + env(safe-area-inset-bottom, 0px))" +
+      "}" +
+      "}" +
       "@media(max-width:520px){" +
-      "#joke-app-banner{gap:7px;min-height:44px;padding:8px 10px;font-size:12px}" +
+      "#joke-app-banner{gap:7px;min-height:56px;margin-top:24px;padding:14px 10px;font-size:12px}" +
+      "#joke-app-banner.joke-app-banner--with-nav{" +
+      "padding-bottom:calc(78px + env(safe-area-inset-bottom, 0px))" +
+      "}" +
       "#joke-app-banner .joke-app-banner__mark{font-size:17px}" +
       "}";
 
@@ -34,7 +41,11 @@
       "<span><strong>ШУТОЧНОЕ ПРИЛОЖЕНИЕ.</strong> Это прикол, не настоящий банк.</span>";
 
     document.head.appendChild(style);
-    document.body.appendChild(banner);
+    if (document.querySelector(".scaffold__nav")) {
+      banner.classList.add("joke-app-banner--with-nav");
+    }
+    var footerHost = document.querySelector(".scaffold__section") || document.body;
+    footerHost.appendChild(banner);
   }
 
   if (document.readyState === "loading") {
