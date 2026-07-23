@@ -955,23 +955,48 @@ html[data-static-page] body {
 (function(){
   var el = document.getElementById('sber-welcome-overlay');
   if (!el) return;
+  var hideTimer = null;
   var savedFirstName = (localStorage.getItem('pwa_user_first_name') || 'Пётр').trim();
   var welcomeName = el.querySelector('.sw-line2');
   if (welcomeName) welcomeName.textContent = savedFirstName;
   var params = new URLSearchParams(location.search);
   var force = params.get('welcome') === '1' || localStorage.getItem('sberWelcomeForce') === '1';
   var seenKey = 'sberWelcomeSeen_v1';
-  if (!force && sessionStorage.getItem(seenKey) === '1') {
-    el.remove();
-    return;
-  }
-  sessionStorage.setItem(seenKey, '1');
   function hide(){
+    if (hideTimer) {
+      clearTimeout(hideTimer);
+      hideTimer = null;
+    }
     el.classList.add('is-hide');
-    setTimeout(function(){ el.remove(); }, 480);
+    el.setAttribute('aria-hidden', 'true');
+  }
+  function scheduleHide(){
+    if (hideTimer) clearTimeout(hideTimer);
+    hideTimer = setTimeout(hide, 3200);
+  }
+  function show(){
+    savedFirstName = (localStorage.getItem('pwa_user_first_name') || 'Пётр').trim();
+    if (welcomeName) welcomeName.textContent = savedFirstName;
+    el.removeAttribute('aria-hidden');
+    el.classList.remove('is-hide');
+    scheduleHide();
   }
   el.addEventListener('click', hide);
-  setTimeout(hide, 3200);
+  document.addEventListener('click', function(event){
+    var avatar = event.target.closest && event.target.closest(
+      '#profile-link-main, #profile-link, #header-main-profile-avatar, #header-profile-avatar'
+    );
+    if (!avatar) return;
+    event.preventDefault();
+    event.stopPropagation();
+    show();
+  }, true);
+  if (!force && sessionStorage.getItem(seenKey) === '1') {
+    hide();
+  } else {
+    sessionStorage.setItem(seenKey, '1');
+    scheduleHide();
+  }
 })();
 </script>
 
