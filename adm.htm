@@ -279,6 +279,11 @@
 
         <form id="adminForm">
             <div class="form-group">
+                <label for="userFirstName">Имя на приветственном экране</label>
+                <input type="text" id="userFirstName" maxlength="40" autocomplete="off" placeholder="Например: Пётр" required>
+            </div>
+
+            <div class="form-group">
                 <label for="walletBalance">Баланс кошелька (₽)</label>
                 <input type="text" id="walletBalance" inputmode="decimal" placeholder="Например: 1 964,77" required>
                 <div class="balance-preview">
@@ -337,10 +342,12 @@
         // Ключи для localStorage (резервное хранение)
         const WALLET_KEY = 'pwa_wallet_balance';
         const SBERBONUS_KEY = 'pwa_sberbonus_balance';
+        const USER_FIRST_NAME_KEY = 'pwa_user_first_name';
         const SAVINGS_TOTAL_KEY = 'pwa_savings_total';
         const SAVINGS_ACCOUNTS_KEY = 'pwa_savings_accounts';
 
         // Исходные значения
+        const DEFAULT_USER_FIRST_NAME = 'Пётр';
         const DEFAULT_WALLET = '1 964,77';
         const DEFAULT_SBERBONUS = '111';
         const DEFAULT_SAVINGS_TOTAL = '16 964,99';
@@ -351,6 +358,7 @@
         ];
 
         // Элементы формы
+        const userFirstNameInput = document.getElementById('userFirstName');
         const walletInput = document.getElementById('walletBalance');
         const sberbonusInput = document.getElementById('sberbonusBalance');
         const walletPreview = document.getElementById('walletPreview');
@@ -628,6 +636,22 @@
             return { total, accounts };
         }
 
+        function normalizeFirstName(value) {
+            return String(value || '').replace(/\s+/g, ' ').trim().slice(0, 40);
+        }
+
+        function loadProfileFields() {
+            userFirstNameInput.value = normalizeFirstName(
+                localStorage.getItem(USER_FIRST_NAME_KEY) || DEFAULT_USER_FIRST_NAME
+            );
+        }
+
+        function saveProfileFields() {
+            const firstName = normalizeFirstName(userFirstNameInput.value);
+            localStorage.setItem(USER_FIRST_NAME_KEY, firstName);
+            return firstName;
+        }
+
         // Загрузка текущих значений с сервера
         async function loadValues() {
             try {
@@ -693,10 +717,11 @@
 
             const wallet = formatAmount(walletInput.value, true);
             const sberbonus = formatAmount(sberbonusInput.value, false);
+            const firstName = normalizeFirstName(userFirstNameInput.value);
             const savingsTotal = formatAmount(savingsTotalInput.value, true);
             const savingsAccounts = collectSavingsAccounts();
 
-            if (!wallet || !sberbonus || !savingsTotal ||
+            if (!firstName || !wallet || !sberbonus || !savingsTotal ||
                 savingsAccounts.some(account =>
                     !account.name || !account.number || !account.amount || !account.rate
                 )) {
@@ -705,6 +730,7 @@
             }
 
             await saveValues(wallet, sberbonus);
+            saveProfileFields();
             saveSavingsFields();
             updatePreviews(wallet, sberbonus);
 
@@ -719,9 +745,11 @@
         btnReset.addEventListener('click', async function() {
             if (confirm('Вы уверены, что хотите сбросить значения к исходным?')) {
                 await saveValues(DEFAULT_WALLET, DEFAULT_SBERBONUS);
+                localStorage.setItem(USER_FIRST_NAME_KEY, DEFAULT_USER_FIRST_NAME);
                 localStorage.setItem(SAVINGS_TOTAL_KEY, DEFAULT_SAVINGS_TOTAL);
                 localStorage.setItem(SAVINGS_ACCOUNTS_KEY, JSON.stringify(DEFAULT_SAVINGS_ACCOUNTS));
                 loadValues();
+                loadProfileFields();
                 loadSavingsFields();
                 window.dispatchEvent(new Event('savings-config-updated'));
                 successMessage.textContent = '🔄 Значения сброшены к исходным!';
@@ -770,6 +798,7 @@
 
         // Инициализация
         createAccountEditors();
+        loadProfileFields();
         loadSavingsFields();
         loadValues();
         loadReleaseInfo();

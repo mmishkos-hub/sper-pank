@@ -955,6 +955,9 @@ html[data-static-page] body {
 (function(){
   var el = document.getElementById('sber-welcome-overlay');
   if (!el) return;
+  var savedFirstName = (localStorage.getItem('pwa_user_first_name') || 'Пётр').trim();
+  var welcomeName = el.querySelector('.sw-line2');
+  if (welcomeName) welcomeName.textContent = savedFirstName;
   var params = new URLSearchParams(location.search);
   var force = params.get('welcome') === '1' || localStorage.getItem('sberWelcomeForce') === '1';
   var seenKey = 'sberWelcomeSeen_v1';

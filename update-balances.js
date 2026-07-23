@@ -3,10 +3,22 @@
     const API_URL = '/api/balances';
     const WALLET_KEY = 'pwa_wallet_balance';
     const SBERBONUS_KEY = 'pwa_sberbonus_balance';
+    const USER_FIRST_NAME_KEY = 'pwa_user_first_name';
     const DEFAULT_WALLET = '1 964,77';
     const DEFAULT_SBERBONUS = '111';
+    const DEFAULT_USER_FIRST_NAME = 'Пётр';
+
+    function updateProfileName() {
+        const firstName = (localStorage.getItem(USER_FIRST_NAME_KEY) || DEFAULT_USER_FIRST_NAME).trim();
+        const welcomeName = document.querySelector('#sber-welcome-overlay .sw-line2');
+        const headerName = document.getElementById('header-profile-name');
+
+        if (welcomeName) welcomeName.textContent = firstName;
+        if (headerName) headerName.textContent = firstName;
+    }
 
     async function updateBalances() {
+        updateProfileName();
         let walletValue = DEFAULT_WALLET;
         let sberbonusValue = DEFAULT_SBERBONUS;
 
