@@ -305,13 +305,9 @@
                 <h2 id="savingsSettingsTitle">Накопления</h2>
                 <p class="section-hint">Настройки экрана «Накопления». Все суммы форматируются автоматически.</p>
 
-                <div class="form-group">
-                    <label for="savingsTotal">Всего средств (₽)</label>
-                    <input type="text" id="savingsTotal" inputmode="decimal" placeholder="Например: 180 500,22" required>
-                    <div class="balance-preview">
-                        <div class="preview-label">Предпросмотр:</div>
-                        <div class="preview-value" id="savingsTotalPreview">180 500,22 ₽</div>
-                    </div>
+                <div class="balance-preview form-group">
+                    <div class="preview-label">Всего средств — кошелёк и три счёта:</div>
+                    <div class="preview-value" id="savingsTotalPreview">182 464,99 ₽</div>
                 </div>
 
                 <div id="accountsEditor"></div>
@@ -343,14 +339,12 @@
         const WALLET_KEY = 'pwa_wallet_balance';
         const SBERBONUS_KEY = 'pwa_sberbonus_balance';
         const USER_FIRST_NAME_KEY = 'pwa_user_first_name';
-        const SAVINGS_TOTAL_KEY = 'pwa_savings_total';
         const SAVINGS_ACCOUNTS_KEY = 'pwa_savings_accounts';
 
         // Исходные значения
         const DEFAULT_USER_FIRST_NAME = 'Пётр';
         const DEFAULT_WALLET = '1 964,77';
         const DEFAULT_SBERBONUS = '111';
-        const DEFAULT_SAVINGS_TOTAL = '16 964,99';
         const DEFAULT_SAVINGS_ACCOUNTS = [
             { name: 'Сберегательный счет', number: '2838', amount: '15 000,22', rate: '0,01' },
             { name: 'Вклад «Лучший %»', number: '4812', amount: '120 000,00', rate: '14,5' },
@@ -366,7 +360,6 @@
         const adminForm = document.getElementById('adminForm');
         const successMessage = document.getElementById('successMessage');
         const btnReset = document.getElementById('btnReset');
-        const savingsTotalInput = document.getElementById('savingsTotal');
         const savingsTotalPreview = document.getElementById('savingsTotalPreview');
         const accountsEditor = document.getElementById('accountsEditor');
         const releaseVersion = document.getElementById('releaseVersion');
@@ -549,6 +542,35 @@
             return integerPart + ',' + decimalPart;
         }
 
+        function amountToCents(value) {
+            const normalized = String(value || '')
+                .replace(/[\s\u00a0]/g, '')
+                .replace('.', ',')
+                .replace(/[^\d,]/g, '');
+            const parts = normalized.split(',');
+            const rubles = parseInt(parts[0] || '0', 10);
+            const kopecks = parseInt((parts[1] || '').slice(0, 2).padEnd(2, '0'), 10);
+            return rubles * 100 + kopecks;
+        }
+
+        function formatCents(cents) {
+            const rubles = Math.floor(cents / 100)
+                .toLocaleString('ru-RU')
+                .replace(/\u00a0/g, ' ');
+            const kopecks = String(cents % 100).padStart(2, '0');
+            return `${rubles},${kopecks}`;
+        }
+
+        function updateComputedSavingsTotal() {
+            const wallet = amountToCents(walletInput.value || DEFAULT_WALLET);
+            const accounts = collectSavingsAccounts();
+            const total = accounts.reduce(
+                (sum, account) => sum + amountToCents(account.amount),
+                wallet
+            );
+            savingsTotalPreview.textContent = formatCents(total) + ' ₽';
+        }
+
         function createAccountEditors() {
             DEFAULT_SAVINGS_ACCOUNTS.forEach((account, index) => {
                 const number = index + 1;
@@ -600,11 +622,7 @@
         }
 
         function loadSavingsFields() {
-            const total = formatAmount(localStorage.getItem(SAVINGS_TOTAL_KEY) || DEFAULT_SAVINGS_TOTAL, true);
             const accounts = readSavingsAccounts();
-
-            savingsTotalInput.value = total;
-            savingsTotalPreview.textContent = total + ' ₽';
 
             accounts.forEach((account, index) => {
                 const fields = getAccountFields(index);
@@ -613,6 +631,7 @@
                 fields.amount.value = formatAmount(account.amount, true);
                 fields.rate.value = formatRate(account.rate);
             });
+            updateComputedSavingsTotal();
         }
 
         function collectSavingsAccounts() {
@@ -628,12 +647,10 @@
         }
 
         function saveSavingsFields() {
-            const total = formatAmount(savingsTotalInput.value, true);
             const accounts = collectSavingsAccounts();
-            localStorage.setItem(SAVINGS_TOTAL_KEY, total);
             localStorage.setItem(SAVINGS_ACCOUNTS_KEY, JSON.stringify(accounts));
             window.dispatchEvent(new Event('savings-config-updated'));
-            return { total, accounts };
+            return { accounts };
         }
 
         function normalizeFirstName(value) {
@@ -681,6 +698,7 @@
         function updatePreviews(wallet, sberbonus) {
             walletPreview.textContent = wallet + ' ₽';
             sberbonusPreview.textContent = sberbonus;
+            updateComputedSavingsTotal();
         }
 
         // Сохранение значений на сервере
@@ -718,10 +736,9 @@
             const wallet = formatAmount(walletInput.value, true);
             const sberbonus = formatAmount(sberbonusInput.value, false);
             const firstName = normalizeFirstName(userFirstNameInput.value);
-            const savingsTotal = formatAmount(savingsTotalInput.value, true);
             const savingsAccounts = collectSavingsAccounts();
 
-            if (!firstName || !wallet || !sberbonus || !savingsTotal ||
+            if (!firstName || !wallet || !sberbonus ||
                 savingsAccounts.some(account =>
                     !account.name || !account.number || !account.amount || !account.rate
                 )) {
@@ -746,7 +763,6 @@
             if (confirm('Вы уверены, что хотите сбросить значения к исходным?')) {
                 await saveValues(DEFAULT_WALLET, DEFAULT_SBERBONUS);
                 localStorage.setItem(USER_FIRST_NAME_KEY, DEFAULT_USER_FIRST_NAME);
-                localStorage.setItem(SAVINGS_TOTAL_KEY, DEFAULT_SAVINGS_TOTAL);
                 localStorage.setItem(SAVINGS_ACCOUNTS_KEY, JSON.stringify(DEFAULT_SAVINGS_ACCOUNTS));
                 loadValues();
                 loadProfileFields();
@@ -767,6 +783,7 @@
         walletInput.addEventListener('input', function() {
             const value = formatInput(this, true) || DEFAULT_WALLET;
             walletPreview.textContent = value + ' ₽';
+            updateComputedSavingsTotal();
         });
 
         sberbonusInput.addEventListener('input', function() {
@@ -774,14 +791,10 @@
             sberbonusPreview.textContent = value;
         });
 
-        savingsTotalInput.addEventListener('input', function() {
-            const value = formatInput(this, true) || DEFAULT_SAVINGS_TOTAL;
-            savingsTotalPreview.textContent = value + ' ₽';
-        });
-
         accountsEditor.addEventListener('input', function(event) {
             if (event.target.matches('[data-account-amount]')) {
                 formatInput(event.target, true);
+                updateComputedSavingsTotal();
             }
             if (event.target.matches('[data-account-rate]')) {
                 const caret = event.target.selectionStart ?? event.target.value.length;

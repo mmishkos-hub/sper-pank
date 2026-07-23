@@ -1,9 +1,9 @@
 (function () {
   "use strict";
 
-  var TOTAL_KEY = "pwa_savings_total";
+  var WALLET_KEY = "pwa_wallet_balance";
   var ACCOUNTS_KEY = "pwa_savings_accounts";
-  var DEFAULT_TOTAL = "16 964,99";
+  var DEFAULT_WALLET = "1 964,77";
   var DEFAULT_ACCOUNTS = [
     {
       name: "Сберегательный счет",
@@ -31,6 +31,37 @@
       if (Array.isArray(saved) && saved.length === 3) return saved;
     } catch (e) {}
     return DEFAULT_ACCOUNTS;
+  }
+
+  function amountToCents(value) {
+    var normalized = String(value || "")
+      .replace(/[\s\u00a0]/g, "")
+      .replace(".", ",")
+      .replace(/[^\d,]/g, "");
+    var parts = normalized.split(",");
+    var rubles = parseInt(parts[0] || "0", 10);
+    var kopecks = parseInt(
+      (parts[1] || "").slice(0, 2).padEnd(2, "0"),
+      10
+    );
+    return rubles * 100 + kopecks;
+  }
+
+  function formatCents(cents) {
+    var rubles = Math.floor(cents / 100)
+      .toLocaleString("ru-RU")
+      .replace(/\u00a0/g, " ");
+    var kopecks = String(cents % 100).padStart(2, "0");
+    return rubles + "," + kopecks;
+  }
+
+  function calculateTotal(accounts) {
+    var total = amountToCents(
+      localStorage.getItem(WALLET_KEY) || DEFAULT_WALLET
+    );
+    return accounts.reduce(function (sum, account) {
+      return sum + amountToCents(account.amount);
+    }, total);
   }
 
   function findTotalElement() {
@@ -92,8 +123,9 @@
   }
 
   function renderSavings() {
-    setTotal(findTotalElement(), localStorage.getItem(TOTAL_KEY) || DEFAULT_TOTAL);
-    renderAccounts(readAccounts());
+    var accounts = readAccounts();
+    setTotal(findTotalElement(), formatCents(calculateTotal(accounts)));
+    renderAccounts(accounts);
   }
 
   if (document.readyState === "loading") {
