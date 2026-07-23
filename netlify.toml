@@ -1,0 +1,62 @@
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/app"
+  to = "/Main.htm"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/app/*"
+  to = "/Main.htm"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/Sber%20Main_files/*"
+  to = "/Main_files/:splat"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/Sber%20Savings_files/*"
+  to = "/Savings_files/:splat"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/*.htm"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/*.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.woff"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=31536000"

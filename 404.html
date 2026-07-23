@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sber PWA - Перенаправление</title>
+</head>
+<body>
+  <script>
+    // Сохраняем текущий URL для восстановления после перезагрузки
+    sessionStorage.redirect = location.href;
+    // Перенаправляем на корень для обработки маршрута
+    location.replace("./");
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=./">
+    <p>Перенаправление... Если ничего не происходит, <a href="./">нажмите здесь</a>.</p>
+  </noscript>
+</body>
+</html>
