@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
-  <meta name="theme-color" content="#F1F1F1">
+  <meta name="theme-color" content="#0F5B58">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Онлайн">
@@ -13,7 +13,7 @@
   <script src="joke-banner.js" defer></script>
   <title>Онлайн</title>
   <style>
-    html, body { height: 100%; margin: 0; background: #F1F1F1; }
+    html, body { height: 100%; margin: 0; background: #0F5B58; }
     .boot {
       min-height: 100%; display: flex; align-items: center; justify-content: center;
       color: #fff; font: 600 18px/1.3 system-ui, sans-serif;
@@ -23,6 +23,10 @@
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./sw.js").catch(function () {});
     }
+    try {
+      sessionStorage.removeItem("onlineAppUnlocked_v1");
+      sessionStorage.removeItem("onlineAppHiddenAt_v1");
+    } catch (e) {}
     location.replace("./Main.htm");
   </script>
 </head>

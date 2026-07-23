@@ -244,7 +244,7 @@ html[data-static-page] iframe[style*="left:-800px"] {
 
 <!-- pwa-local-start -->
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#F1F1F1">
+<meta name="theme-color" content="#D9E0FA">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -992,7 +992,8 @@ html.online-lock-open body {
   inset: 0;
   z-index: 2147483050;
   box-sizing: border-box;
-  min-height: 100dvh;
+  height: 100%;
+  min-height: 0;
   overflow: hidden;
   color: #fff;
   background:
@@ -1000,7 +1001,8 @@ html.online-lock-open body {
     url("welcome-capture/lock-background.webp") center / cover no-repeat;
   font-family: SBSans, SBSansText, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   opacity: 1;
-  transition: opacity 220ms cubic-bezier(.22, 1, .36, 1);
+  transition: opacity 640ms cubic-bezier(.22, 1, .36, 1);
+  will-change: opacity;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -1018,6 +1020,10 @@ html.online-lock-open body {
   pointer-events: none;
 }
 
+#online-lock-screen.is-unlocking .ol-shell {
+  transform: scale(1.012);
+}
+
 .ol-shell {
   position: relative;
   z-index: 1;
@@ -1025,13 +1031,17 @@ html.online-lock-open body {
   flex-direction: column;
   box-sizing: border-box;
   width: min(100%, 460px);
-  height: 100dvh;
-  min-height: 100dvh;
+  height: 100%;
+  min-height: 0;
   margin: 0 auto;
   padding:
     max(20px, calc(env(safe-area-inset-top) + 14px))
     20px
     max(14px, calc(env(safe-area-inset-bottom) + 10px));
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 640ms cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
 }
 
 .ol-brand {
@@ -1365,8 +1375,23 @@ html.online-lock-open body {
   var screen = document.getElementById('online-lock-screen');
   if (!screen) return;
 
+  var mainThemeColor = '#D9E0FA';
+  var lockThemeColor = '#0F5B58';
+  function setThemeColor(color) {
+    Array.prototype.forEach.call(
+      document.querySelectorAll('meta[name="theme-color"]'),
+      function (meta) { meta.setAttribute('content', color); }
+    );
+  }
+
   var force = new URLSearchParams(location.search).get('lock') === '1';
   var unlockedKey = 'onlineAppUnlocked_v1';
+  var hiddenAtKey = 'onlineAppHiddenAt_v1';
+  var hiddenAt = Number(sessionStorage.getItem(hiddenAtKey) || 0);
+  if (hiddenAt && Date.now() - hiddenAt >= 5000) {
+    sessionStorage.removeItem(unlockedKey);
+    sessionStorage.removeItem(hiddenAtKey);
+  }
   document.addEventListener('click', function (event) {
     var avatar = event.target.closest && event.target.closest(
       '#profile-link-main, #profile-link, #header-main-profile-avatar, #header-profile-avatar'
@@ -1375,14 +1400,17 @@ html.online-lock-open body {
     event.preventDefault();
     event.stopPropagation();
     sessionStorage.removeItem(unlockedKey);
+    sessionStorage.removeItem(hiddenAtKey);
     location.reload();
   }, true);
 
   if (!force && sessionStorage.getItem(unlockedKey) === '1') {
+    setThemeColor(mainThemeColor);
     screen.remove();
     return;
   }
 
+  setThemeColor(lockThemeColor);
   var name = (localStorage.getItem('pwa_user_first_name') || 'Пётр').trim();
   var nameNode = screen.querySelector('.ol-name');
   var dots = Array.prototype.slice.call(screen.querySelectorAll('.ol-dot'));
@@ -1407,18 +1435,22 @@ html.online-lock-open body {
     if (unlocking) return;
     unlocking = true;
     sessionStorage.setItem(unlockedKey, '1');
+    sessionStorage.removeItem(hiddenAtKey);
     screen.classList.add('is-unlocking');
     document.documentElement.classList.remove('online-lock-open');
     document.removeEventListener('keydown', onKeydown);
     setTimeout(function () {
       document.documentElement.classList.add('online-main-enter-active');
-    }, 150);
+    }, 260);
+    setTimeout(function () {
+      setThemeColor(mainThemeColor);
+    }, 420);
     setTimeout(function () {
       screen.remove();
-    }, 240);
+    }, 680);
     setTimeout(function () {
       document.documentElement.classList.remove('online-main-entering', 'online-main-enter-active');
-    }, 900);
+    }, 1250);
   }
 
   function addDigit(value) {
