@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="joke-banner.js" defer></script>
     <title>Админ-панель - PWA Сбер</title>
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="manifest.webmanifest">
     <style>
         * {
             margin: 0;
@@ -200,13 +201,13 @@
             </div>
         </form>
 
-        <a href="/app/main" class="nav-link">← Вернуться на главную</a>
+        <a href="Main.htm" class="nav-link">← Вернуться на главную</a>
     </div>
 
     <script>
         // API endpoint для сервера
         const API_URL = '/api/balances';
-        
+
         // Ключи для localStorage (резервное хранение)
         const WALLET_KEY = 'pwa_wallet_balance';
         const SBERBONUS_KEY = 'pwa_sberbonus_balance';
@@ -238,7 +239,7 @@
             } catch (e) {
                 console.log('Ошибка загрузки с сервера, используем localStorage', e);
             }
-            
+
             // Fallback на localStorage если сервер недоступен
             const wallet = localStorage.getItem(WALLET_KEY) || DEFAULT_WALLET;
             const sberbonus = localStorage.getItem(SBERBONUS_KEY) || DEFAULT_SBERBONUS;
@@ -261,7 +262,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ wallet, sberbonus })
                 });
-                
+
                 if (response.ok) {
                     // Сохраняем также в localStorage для резерва
                     localStorage.setItem(WALLET_KEY, wallet);
@@ -273,7 +274,7 @@
             } catch (e) {
                 console.log('Ошибка сохранения на сервере, используем localStorage', e);
             }
-            
+
             // Fallback на localStorage если сервер недоступен
             localStorage.setItem(WALLET_KEY, wallet);
             localStorage.setItem(SBERBONUS_KEY, sberbonus);

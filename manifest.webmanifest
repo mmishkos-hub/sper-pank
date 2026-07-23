@@ -53,13 +53,13 @@
     {
       "name": "Главный",
       "short_name": "Главный",
-      "url": "./app/main",
+      "url": "./Main.htm",
       "icons": [{ "src": "pwa-icons/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Накопления",
       "short_name": "Накопления",
-      "url": "./app/savings",
+      "url": "./Savings.htm",
       "icons": [{ "src": "pwa-icons/icon-192.png", "sizes": "192x192" }]
     }
   ]

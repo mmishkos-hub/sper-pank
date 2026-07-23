@@ -10,6 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="pwa-icons/icon-180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="pwa-icons/favicon-32.png">
+  <script src="joke-banner.js" defer></script>
   <title>СберБанк Онлайн</title>
   <style>
     html, body { height: 100%; margin: 0; background: #21A038; }
@@ -22,7 +23,7 @@
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./sw.js").catch(function () {});
     }
-    location.replace("./app/main");
+    location.replace("./Main.htm");
   </script>
 </head>
 <body>
