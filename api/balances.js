@@ -2,10 +2,38 @@
 // Этот файл можно использовать как шаблон для реализации на вашем сервере
 // В продакшене используйте базу данных или файловое хранилище
 
-let store = {
+const fs = require('fs');
+const path = require('path');
+
+const DATA_FILE = path.join(__dirname, 'balances-data.json');
+const DEFAULT_DATA = {
   pwa_wallet_balance: '1 964,77',
   pwa_sberbonus_balance: '111'
 };
+
+// Чтение данных из файла
+function readData() {
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      const data = fs.readFileSync(DATA_FILE, 'utf8');
+      return JSON.parse(data);
+    }
+  } catch (e) {
+    console.error('Ошибка чтения файла данных:', e);
+  }
+  return DEFAULT_DATA;
+}
+
+// Запись данных в файл
+function writeData(data) {
+  try {
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf8');
+    return true;
+  } catch (e) {
+    console.error('Ошибка записи файла данных:', e);
+    return false;
+  }
+}
 
 export default async function handler(req) {
   // Разрешаем CORS для запросов с фронтенда
@@ -21,10 +49,11 @@ export default async function handler(req) {
 
   if (req.method === 'GET') {
     // Получение данных
+    const store = readData();
     return new Response(
       JSON.stringify({ 
-        wallet: store.pwa_wallet_balance || '1 964,77', 
-        sberbonus: store.pwa_sberbonus_balance || '111' 
+        wallet: store.pwa_wallet_balance || DEFAULT_DATA.pwa_wallet_balance, 
+        sberbonus: store.pwa_sberbonus_balance || DEFAULT_DATA.pwa_sberbonus_balance 
       }),
       { 
         status: 200, 
@@ -48,16 +77,29 @@ export default async function handler(req) {
       );
     }
     
-    store.pwa_wallet_balance = wallet;
-    store.pwa_sberbonus_balance = sberbonus;
+    const currentData = readData();
+    currentData.pwa_wallet_balance = wallet;
+    currentData.pwa_sberbonus_balance = sberbonus;
     
-    return new Response(
-      JSON.stringify({ success: true, wallet, sberbonus }),
-      { 
-        status: 200, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
-      }
-    );
+    const success = writeData(currentData);
+    
+    if (success) {
+      return new Response(
+        JSON.stringify({ success: true, wallet, sberbonus }),
+        { 
+          status: 200, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    } else {
+      return new Response(
+        JSON.stringify({ error: 'Ошибка сохранения данных' }),
+        { 
+          status: 500, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    }
   }
 
   return new Response(
