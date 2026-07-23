@@ -1,0 +1,1271 @@
+[
+    {
+        "iconName": "ds_ic_24_arrow_down_alt2",
+        "collectionName": "common",
+        "operations": [
+            "ExtCardOtherIn",
+            "ExtCardPaymentRefund",
+            "ExtCardTransferIn",
+            "ExtDepositOtherCredit",
+            "ObAddingByExternalTransfer",
+            "ObCashback",
+            "ObExternalTransfer",
+            "ObOtherReceipt",
+            "ObOtherRefund",
+            "ObPaymentRefund",
+            "ObTransferRefund",
+            "P2PSBPInTransfer",
+            "RefundGoodsClaim",
+            "SberbankIdAnnulPayment",
+            "UfsAbroadTransferCashPaymentCancel",
+            "UfsDIAPayment",
+            "UfsExtAccrualBonus",
+            "UfsExtDigitalAssetSell",
+            "UfsExtMMPLSBPInTransfer",
+            "UfsExtOtherSbpPaymentsB2C",
+            "ExternalTopUp",
+            "UfsTransferRefundXBCard"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_arrows_forward_back_alt1",
+        "collectionName": "common",
+        "operations": [
+            "ExtCardOwnTransfer",
+            "InternalPayment",
+            "InternalPaymentBack",
+            "MultiCurrencyCardTransferInsideCardClaim",
+            "ObAutoTransferMe2me",
+            "ObTransfer",
+            "ObTransferMe2me",
+            "ObTransferMe2meBySBP",
+            "UfsInvestmentsExchangeShareRequest",
+            "UfsLoyaltyConverterOut",
+            "UfsShfTransferFromTCA",
+            "UfsShfTransferToTCA",
+            "UfsTransferSelf",
+            "UfsExtAccountOwnTransfer",
+            "UfsTransferSberMe2MeKids",
+            "UfsDepoSecuritiesTransfer",
+            "UfsCorpCardTransfrMe2Me",
+            "UfsC2BCardTransferMe2Me",
+            "UfsShfTransferFromDeposit",
+            "UfsShfTransferDeposit"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_arrow_up_alt2",
+        "collectionName": "common",
+        "operations": [
+            "AbroadTransferCashPayment",
+            "ExtCardOtherOut",
+            "ExtCardTransferOut",
+            "ExtDepositOtherDebit",
+            "JurPayment",
+            "ObForeignTransfer",
+            "ObOtherDebiting",
+            "ObTransferByNumber",
+            "overseasTransfer",
+            "P2PExternalBankTransfer",
+            "RurPayment",
+            "TemplatePayDocument",
+            "UfsAbroadTransferCashPaymentSend",
+            "UfsCorpCardTransfr",
+            "UfsCPPPensionPayment",
+            "UfsCreditVacation",
+            "UfsExtDigitalAssetBuy",
+            "UfsExtInvestBoxAutoReplenishment",
+            "UfsExtMMPLSBPOutNAcptTransfer",
+            "UfsExtWritingOffBonus",
+            "UfsInvestCMFRepayRequest",
+            "UfsInvestmentsRepayShareRequest",
+            "UfsLoyaltyP2POut",
+            "UfsLoyaltyPToPOut",
+            "UfsMMPLSBPOutTransfer",
+            "UfsOutAccount",
+            "UfsOutTransfer",
+            "UfsOutTransferRefund",
+            "UfsP2PSBPOutTransfer",
+            "UfsRusCurrencyTransfer",
+            "UfsShfTransferPhoneFromTCA",
+            "UfsTGPSwiftTransfer",
+            "UfsTGPTransferXBCard",
+            "UfsTransferAccount",
+            "UfsTransferBankPartnerPhone",
+            "UfsTransferForeignBankCardSend",
+            "UfsTransferRefund",
+            "UfsTransferToPartnersByIban",
+            "UfsTransferBankPartnerPhoneKids",
+            "UfsTransferSberCardToCardKids",
+            "TemplatePay",
+            "NewRurPayment",
+            "UfsP2PKidsSBPOutTransfer",
+            "UfsShfTransferSBPFromTCA",
+            "UfsPropertyPurchase",
+            "UfsRentOrMunicipalServices",
+            "UfsNationalDuty",
+            "UfsNotarySign",
+            "UfsCorpCardTransfrLegalEntityCard",
+            "UfsRepaymentOfDebtToBank",
+            "UfsRepaymentOfDebt",
+            "UfsCorpCardTransfrSbp",
+            "UfsNpfRefill",
+            "UfsIndvlPayment"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_bag",
+        "collectionName": "common",
+        "operations": [
+            "SalaryPay",
+            "UfsInheritancePayoutCash",
+            "UfsInheritancePayoutTransfer",
+            "UfsMbDepositNotificationViewUpdate",
+            "UfsMMPLSBPOutQuery",
+            "UfsASVPayoutApplication"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_bag_alt1",
+        "collectionName": "common",
+        "operations": [
+            "UfsFavorKitConnect",
+            "UfsFavorKitDisconnect",
+            "UfsFavorKitSharing",
+            "UfsFavorKitUpdate",
+            "UfsOnlinePosCreditClaim",
+            "UfsTariffPlanChangeCardsClaim",
+            "UfsTariffPlanConnectClaim",
+            "UfsTariffPlanDisconnectClaim",
+            "UfsPackageMortgageIns"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_basket",
+        "collectionName": "common",
+        "operations": [
+            "AirlineReservationPayment",
+            "ExtCardPayment",
+            "ExtEpsPayment",
+            "ExternalPayment",
+            "ExternalProviderPayment",
+            "InvoicePayment",
+            "ObOtherPayment",
+            "ObPayment",
+            "ObPaymentByBankDetails",
+            "ObPaymentByQr",
+            "ObPaymentByQrSBP",
+            "ObServicePayment",
+            "ObSubscriptionPayment",
+            "ObTipsPayment",
+            "OtherPayment",
+            "RurPayJurSB",
+            "SberbankIdPayment",
+            "UfsDefaultWalletCreate",
+            "UfsDefaultWalletEdit",
+            "UfsExpensesControlRemoveLimit",
+            "UfsExpensesControlSetLimit",
+            "UfsJuridicalPaymentLink",
+            "UfsPaymentProPay",
+            "UfsQRCSCANB",
+            "UfsQRSBP",
+            "UfsSberPayOrder",
+            "UfsSberPayRefundOrder",
+            "UfsSberPayTips",
+            "UfsSberPayVisibility",
+            "UfsSubscriptionsExtClaim",
+            "UfsSubscriptionsExtRemoveLimit",
+            "UfsSubscriptionsExtSetLimit",
+            "UfsCreditCardSkipPayment",
+            "UfsDcPaymentApprovalRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_bell",
+        "collectionName": "common",
+        "operations": [
+            "CloseServiceProviderSubscriptionClaim",
+            "CreateServiceProviderSubscriptionClaim",
+            "TakingMeans",
+            "UfsMbDepositNoticeOn",
+            "UfsMobileBankRegistration",
+            "UfsTcAccountsNotificationRegistration",
+            "UfsExtCardFee"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_bell_crossed",
+        "collectionName": "common",
+        "operations": [
+            "UfsMbDepositNoticeOff",
+            "UfsMobileBankNoticeOff",
+            "UfsTcAccountsNoticeOff"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_box",
+        "collectionName": "common",
+        "operations": [
+            "UfsCargoDeliveryRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_building",
+        "collectionName": "common",
+        "operations": [
+            "ObBankServicePayment",
+            "ObPaymentInBank",
+            "ObTransferToOrganization",
+            "UfsAssignVIPsegment",
+            "UfsOfficeSelected"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_calendar",
+        "collectionName": "common",
+        "operations": [
+            "UfsCreditChangePaymentDay",
+            "UfsSubscriptionsSubscribe",
+            "UfsSubscriptionsUnsubscribe",
+            "UfsTkpChangePmt",
+            "UfsTkpChangePmtDay"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_car",
+        "collectionName": "common",
+        "operations": [
+            "UfsAvtoKaskoNative",
+            "UfsBusinessLeasing",
+            "UfsCarLoan",
+            "UfsCarloanCalculationCP",
+            "UfsCarloandcApplicationCancel",
+            "UfsCarloandcDocumentSign",
+            "UfsCarLoanDeposit",
+            "UfsCarLoanIssue",
+            "UfsCarLoanKasko",
+            "UfsCarLoanRequest",
+            "UfsLeasingRequestMMBCreate",
+            "UfsCarloandcAgreementSign",
+            "UfsCarloandcIncomeConfirm",
+            "UfsSellerC2C",
+            "UfsCarLoanC2C",
+            "UfsCarLoanVehicleCheck",
+            "UfsCarloandcRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_card",
+        "collectionName": "common",
+        "operations": [
+            "ActivationCardClaim",
+            "AddExternalCard",
+            "BlockingCardClaim",
+            "ExtendedBlockingCardClaim",
+            "LoanCardOffer",
+            "LoanCardProduct",
+            "MultiCurrencyCardAddCurrencyClaim",
+            "OnDemandStorno",
+            "P2POverseasCardTransfer",
+            "PayrollCardAttachClaim",
+            "RecoveryInvoiceSubscriptionClaim",
+            "RollbackOrderClaim",
+            "stornoDemandTransfer",
+            "UfsCardActivationWoPlastic",
+            "UfsCardContractClosure",
+            "UfsCardReissue",
+            "UfsChangeCardTariff",
+            "UfsCreditCardActivate",
+            "UfsCreditCardChangeTariff",
+            "UfsCreditCardClaim",
+            "UfsCreditCardCloseAccount",
+            "UfsCreditCardCreateAnnuity",
+            "UfsCreditCardEarlyReissue",
+            "UfsCreditCardTransfer",
+            "UfsCreditChangePayAccount",
+            "UfsCVCCodeRequest",
+            "UfsDebitCardClaim",
+            "UfsDeliveryCardActivationHistoryRequest",
+            "UfsGraceChange",
+            "UfsIncreaseCardCreditLimit",
+            "UfsIssuanceDCardHistoryRequest",
+            "UfsMulticurrencyCardAdd",
+            "UfsOrderPlasticClaim",
+            "UfsPromisedPayment",
+            "UfsReuseInMobile",
+            "UfsSalaryEmployerInvite",
+            "UfsSalaryJoinByClient",
+            "UfsSelectSocialAccount",
+            "UfsSubscriptionsPaymentToolsChange",
+            "UfsTransferRusCard",
+            "UfsVirtualCardClaim",
+            "UfsWalletCompoundCreate",
+            "UfsWalletCompoundDelete",
+            "UfsWalletCompoundUpdate",
+            "UfsDepoDocRevocation",
+            "UfsCorpCardTransfrRusCard",
+            "UfsIssuanceMomentum",
+            "UfsCardMachineIssuance"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_cards_stack",
+        "collectionName": "common",
+        "operations": [
+            "UfsExtCompositePaymentTransfer"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_case",
+        "collectionName": "common",
+        "operations": [
+            "UfsBankAccountCreate",
+            "UfsBrokerageAgreementClose",
+            "UfsBusinessInstallment",
+            "UfsBuyIBO",
+            "UfsBuyInvestBond",
+            "UfsBuyIPO",
+            "UfsBuySPO",
+            "UfsClaimBuyAssetCancel",
+            "UfsClaimSellAssetCancel",
+            "UfsRemoteOpeningAccount",
+            "UfsRemoteOpeningAccountFull",
+            "UfsSberbusinessConnect",
+            "UfsSelfEmployedAssignClaim",
+            "UfsSelfEmployedParametersUpdate",
+            "UfsSelfEmployedPayToolClaim",
+            "UfsSelfEmployedPayToolDetachClaim",
+            "UfsSelfEmployedRightsUpdate",
+            "UfsSelfEmployedUnassignClaim",
+            "UfsSmallBusiness",
+            "UfsIPRegistrationApplicationSBOLPRO",
+            "UfsIPRegistrationApplicationSBOL",
+            "UfsBusinessPotential",
+            "UfsSigningDocuments",
+            "UfsRemoteOpeningAccountCandidate",
+            "UfsLLCRegistrationApplicationSBOL",
+            "UfsLLCRegistrationSBOLPRO"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_case_diagram",
+        "collectionName": "common",
+        "operations": [
+            "ObInvestment",
+            "ObSecurities",
+            "UfsAdvisoryChangeTariff",
+            "UfsBrokerageContractEdit",
+            "UfsBrokerageParentConsent",
+            "UfsBrokerageReplenishment",
+            "UfsBuyShare",
+            "UfsBuyShareWithCard",
+            "UfsClaimBuyAsset",
+            "UfsClaimBuyAssetWithCard",
+            "UfsClaimSellAsset",
+            "UfsETFOrderBuy",
+            "UfsETFOrderBuyWithCard",
+            "UfsExtBrokerageAutoReplenishment",
+            "UfsInvestCMFRequest",
+            "UfsInvestCMFSellRequest",
+            "UfsInvestEtfRequest",
+            "UfsInvestmentDocClaim",
+            "UfsInvestmentDocClaimEdit",
+            "UfsInvestmentDocClaimShort",
+            "UfsInvestmentIisAccClaim",
+            "UfsInvestmentIisAccClaimEdit",
+            "UfsInvestmentRoboClaim",
+            "UfsInvestmentsBuyShareRequest",
+            "UfsInvestmentsFundRequest",
+            "UfsPackageTrade",
+            "UfsPensionOrderIppRequest",
+            "UfsBuyStructBond",
+            "UfsETFOrderSell",
+            "BrokerTransfer",
+            "UfsBZPIFBuyCard",
+            "UfsBZPIFBuyAccount",
+            "UfsPIFOrderExchange",
+            "UfsPIFOrderRepay",
+            "UfsPIFOrderBuy",
+            "UfsPIFOrderBuyWithCard",
+            "UfsSellShare"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_cash",
+        "collectionName": "common",
+        "operations": [
+            "demandTransfer",
+            "ExtCardCashIn",
+            "ExtCardCashOut",
+            "ObCashDeposit",
+            "ObCashWithdrawal",
+            "OnDemand",
+            "TakingCash",
+            "UfsBookingCash",
+            "UfsCardRechargeMoney",
+            "UfsCardWithdrawalMoney",
+            "UfsCashExam",
+            "UfsCashExchange",
+            "UfsCurrencyExchange",
+            "UfsDepositWithdrawCash",
+            "UfsDpvOrder",
+            "UfsPaymentAccountOpen"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_coat_of_arms_alt1",
+        "collectionName": "common",
+        "operations": [
+            "ExtDepositPension",
+            "ObPensionAdding",
+            "UfsBrokerageTaxRefund",
+            "UfsGsRecovery",
+            "UfsSidRequest",
+            "UfsStateServicesRegistration"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_coin",
+        "collectionName": "common",
+        "operations": [
+            "CreateMoneyBoxPayment",
+            "EditMoneyBoxClaim",
+            "MoneyBoxPaymentIncome",
+            "RecoverMoneyBoxPayment",
+            "RefuseMoneyBoxPayment",
+            "UfsCoinBuyCard",
+            "UfsCoinPurchase",
+            "UfsCoinSell",
+            "UfsMoneyboxCreate",
+            "UfsMoneyboxCreateConv",
+            "UfsMoneyboxDeleteConv",
+            "UfsMoneyboxPauseConv",
+            "UfsMoneyboxReopenConv",
+            "UfsMoneyboxUpdate"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_coin_diagram",
+        "collectionName": "common",
+        "operations": [
+            "UfsBrokerageMoneyboxUpdate",
+            "UfsInvestBoxAutoTransactionEdit",
+            "UfsInvestBoxOpen",
+            "UfsInvestBoxClose",
+            "UfsInvestBoxWithdrawal",
+            "UfsInvestBoxChangeFund"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_counterclockwise",
+        "collectionName": "common",
+        "operations": [
+            "AcceptAutoSubscriptionExecuteClaim",
+            "CancelAutoSubscriptionExecuteClaim",
+            "CloseAutoSubscriptionPayment",
+            "CloseP2PAutoTransferClaim",
+            "CreateAutoPaymentDocument",
+            "CreateAutoSubscriptionPayment",
+            "CreateP2PAutoTransferClaim",
+            "DelayAutoSubscriptionPayment",
+            "DelayP2PAutoTransferClaim",
+            "EditAutoPaymentPayment",
+            "EditAutoSubscriptionPayment",
+            "EditP2PAutoTransferClaim",
+            "InternalPaymentLongOffer",
+            "LoanPaymentLongOffer",
+            "MultiCurrencyCardSetCurrencyClaim",
+            "ObAutoTransfer",
+            "ObSubscriptionAutoPayment",
+            "RecoveryAutoSubscriptionPayment",
+            "RecoveryP2PAutoTransferClaim",
+            "RefuseAutoPaymentPayment",
+            "RefuseLongOffer",
+            "UfsAutopayments",
+            "UfsAutopaymentsClose",
+            "UfsAutopaymentsEdit",
+            "UfsAutopaymentsPause",
+            "UfsAutopaymentsResume",
+            "UfsAutoTransfersClose",
+            "UfsAutoTransfersExternalCreate",
+            "UfsAutoTransfersExternalEdit",
+            "UfsAutoTransfersMe2MeCreate",
+            "UfsAutoTransfersMe2MeEdit",
+            "UfsAutoTransfersMe2MeSbpPullClose",
+            "UfsAutoTransfersMe2MeSbpPullCreate",
+            "UfsAutoTransfersP2PCreate",
+            "UfsAutoTransfersP2PEdit",
+            "UfsAutoTransfersP2POtherBankCreate",
+            "UfsAutoTransfersP2POtherBankEdit",
+            "UfsAutoTransfersPause",
+            "UfsAutoTransfersResume",
+            "UfsCreditCardAutorepayment",
+            "UfsExtCardAutoOwnTransfer",
+            "UfsExtCardAutoTransfer",
+            "UfsLoyaltyReverseIn",
+            "UfsLoyaltyReverseOut",
+            "UfsMarkPremiereRequest",
+            "UfsMulticurrencyCardSet",
+            "UfsPaymentAccountRelink",
+            "UfsPensionAutopaymentIppRequest",
+            "UfsTransferRdcAutotransferClose",
+            "UfsTransferRdcAutotransferCreate",
+            "UfsTransferRdcAutotransferEdit",
+            "UfsOutTransferRefundRequest",
+            "RurPaymentLongOffer",
+            "UfsLoyaltyConverter",
+            "UfsExtAccountAutoTransfer"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_crown_alt1",
+        "collectionName": "common",
+        "operations": [
+            "CancelAppointmentClaim",
+            "EditAppointmentClaim"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_document_chart",
+        "collectionName": "common",
+        "operations": [
+            "CardReportDeliveryClaim",
+            "PNDClaim",
+            "UfsCapcChangeCertStatus",
+            "UfsCapcDownloadCert",
+            "UfsCardsSoLsInsurance",
+            "UfsCardTransferRiskInsurance",
+            "UfsConditionalFx",
+            "UfsConditionalFxCancel",
+            "UfsConsentCreate",
+            "UfsCreditHolidays",
+            "UfsEmploymentHistory",
+            "UfsFisConsentAutoCreate",
+            "UfsFisConsentCreate",
+            "UfsFisConsentRevoke",
+            "UfsGuaranteeLoan",
+            "UfsInsuranceClaimCMB",
+            "UfsInsuranceTerminationCMB",
+            "UfsInsuranceTerminationVZR",
+            "UfsInsuranceTerminationZBK",
+            "UfsInsuranceTerminationZBP",
+            "UfsInsuranceTerminationZD",
+            "UfsInvestCMFVoteRequest",
+            "UfsLoanConsentBCH",
+            "UfsLoansSettlement",
+            "UfsLostJobInsurance",
+            "UfsMortgageHolidays",
+            "UfsPensionAssignment",
+            "UfsPensionAssignmentMB",
+            "UfsPensionTransfer",
+            "UfsPersonProfileConsentRequest",
+            "UfsRequestGPSubscribe",
+            "UfsRestructuring",
+            "UfsRetailStatement",
+            "UfsSafeBoxMulti",
+            "UfsSberIdCardConsentCreate",
+            "UfsSberIdCardConsentRevoke",
+            "UfsSberIdPartnerConsentCreate",
+            "UfsSberIdPartnerConsentRevoke",
+            "UfsSberIdPartnerConsentUpdate",
+            "UfsSelfEmployedCancelReceipt",
+            "UfsSelfEmployedReceipt",
+            "UfsStateServicesDcpDisabledPerson",
+            "UfsStateServicesDcpElcWrkb",
+            "UfsStateServicesDcpFamilyAssets",
+            "UfsStateServicesDcpIlsPfr",
+            "UfsStateServicesDcpIncomeReference",
+            "UfsStateServicesDcpInfo",
+            "UfsStateServicesDcpMdclPlcy",
+            "UfsStateServicesDcpPayoutIncome",
+            "UfsStateServicesDcpPensionReference",
+            "UfsStateServicesDcpPreRetirement",
+            "UfsStateServicesDcpRealEstate",
+            "UfsStateServicesDcpSocialSupport",
+            "UfsStateServicesDcpSubscription",
+            "UfsStateServicesDigitalCitizenProfile",
+            "UfsStateServicesIncomeReference",
+            "UfsStateServicesPensionStatementOld",
+            "UfsTravelCertificate",
+            "UfsTravelFlight",
+            "UfsUniversalOmniConsentRevoke",
+            "UfsUniversalOmniConsentUpdate",
+            "UfsDepoClientRegClaim",
+            "UfsDepoReportClaim",
+            "UfsBankGroupConsentCreate",
+            "UfsStateServicesPensionStatement",
+            "UfsDpvOrdUfsUniversalOmniConsentCreateer",
+            "UfsStateServicesPapPensionTransfer",
+            "UfsCPPPensionRequest",
+            "UfsBrokerageNotify"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_document_checkmark",
+        "collectionName": "common",
+        "operations": [
+            "UfsOpsToPdsRequest",
+            "UfsUniversalOmniConsentCreate",
+            "UfsAdvisoryPro"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_equalizer_alt",
+        "collectionName": "common",
+        "operations": [
+            "ChangeDayPersonLimitClaim",
+            "ClientIncreaseLimitClaim",
+            "UfsGSPensionCalc",
+            "UfsLendingCapacityRequest",
+            "UfsPersLimitSet",
+            "UfsSbolLendingCapacityRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_face_id",
+        "collectionName": "common",
+        "operations": [
+            "UfsBioReject",
+            "UfsPaySmileBioBinding",
+            "UfsPersonBioTemp",
+            "UfsBioCollect"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_gift",
+        "collectionName": "common",
+        "operations": [
+            "UfsLoyaltyCoupons"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_heart_hand",
+        "collectionName": "common",
+        "operations": [
+            "UfsExtAccountCharityFundContribution"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_house",
+        "collectionName": "common",
+        "operations": [
+            "UfsMortgageRequestSBOL"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_ingot",
+        "collectionName": "common",
+        "operations": [
+            "IMAOpeningClaim",
+            "IMAPayment",
+            "ObValuableMetals",
+            "UfsOmsBarIn",
+            "UfsOmsBarOut",
+            "UfsOmsBuy",
+            "UfsOmsClose",
+            "UfsOmsCloseWithTransfer",
+            "UfsOmsOpen",
+            "UfsOmsSale",
+            "UfsBarBuy"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_key_alt1",
+        "collectionName": "common",
+        "operations": [
+            "SetPinForCard",
+            "UfsCardSetPin",
+            "UfsPaySmileSecureCode"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_lamp",
+        "collectionName": "common",
+        "operations": [
+            "UfsPeCalculation"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_letter",
+        "collectionName": "common",
+        "operations": [
+            "CreateBillingInvoiceESubscriptionClaim",
+            "UfsDocsDelivery",
+            "UfsHcsEmailSubscriptionStorageEntity"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_lifebuoy",
+        "collectionName": "common",
+        "operations": [
+            "UfsCreditPaymentOrderCancel",
+            "UfsCreditPaymentOrderCreate"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_lock",
+        "collectionName": "common",
+        "operations": [
+            "ArrestMeans",
+            "ObRecovery",
+            "Punishment",
+            "UfsBlockingCardClaim",
+            "UfsRequestAssistant"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_lock_cross",
+        "collectionName": "common",
+        "operations": [
+            "ArrestCancellation",
+            "PunishmentCancellation",
+            "UfsUnblockingCardClaim",
+            "UnblockingCardClaim"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_magic_wand_alt1",
+        "collectionName": "common",
+        "operations": [
+            "UfsSberIdAccountMerging"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_magnifying_glass",
+        "collectionName": "common",
+        "operations": [
+            "CreateInvoiceSubscriptionPayment",
+            "DelayInvoiceSubscriptionClaim",
+            "EditInvoiceSubscriptionClaim"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_man_wheelchair",
+        "collectionName": "common",
+        "operations": [
+            "UfsChangeAccessibility",
+            "UfsDeleteAccessibility",
+            "UfsRegisterAccessibility"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_meter",
+        "collectionName": "common",
+        "operations": [
+            "UfsHcsMeasurTransmitCountersLink"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_mobile",
+        "collectionName": "common",
+        "operations": [
+            "UfsChildNotifications"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_pencil_line",
+        "collectionName": "common",
+        "operations": [
+            "UfsIndividualLetterOfCreditAcceptanceAmendment",
+            "UfsIndividualLetterOfCreditAmendment",
+            "UfsInvestBoxAuto"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_percent",
+        "collectionName": "common",
+        "operations": [
+            "ExtDepositCapitalization",
+            "ExtDepositInterestAccrual",
+            "ObDepositCapitalization",
+            "ObTransferFee",
+            "PercentIncrease",
+            "UfsDepositPercentPayModeRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_pharmacy",
+        "collectionName": "common",
+        "operations": [
+            "UfsElectronicRecipeOn"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_phone",
+        "collectionName": "common",
+        "operations": [
+            "UfsMbDepositChangePhoneNumber",
+            "UfsMobileBankChangePhoneNumber",
+            "UfsMobileBankOff",
+            "UfsTcAccountsChangePhoneNotification",
+            "UfsTcAccountsNotificationDelete"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_picture_alt1",
+        "collectionName": "common",
+        "operations": [
+            "UfsSetCardDesign"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_pie_chart_alt1",
+        "collectionName": "common",
+        "operations": [
+            "ExtRequirementPayment"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_qr_square",
+        "collectionName": "common",
+        "operations": [
+            "UfsFastPayment"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_rectangle_speech_buble",
+        "collectionName": "common",
+        "operations": [
+            "UfsCreditHistEventJointMonitoringSource",
+            "UfsCreditHistEventJointMonitoringTarget",
+            "UfsCreditHistEventSubscribe"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_safe",
+        "collectionName": "common",
+        "operations": [
+            "AccountChangeInterestDestinationClaim",
+            "AccountClosingPayment",
+            "AccountOpeningClaim",
+            "AutopayNSZH",
+            "ExtDepositClose",
+            "ExtDepositOpen",
+            "ExtDepositProlongation",
+            "ObDepositClose",
+            "ObDepositOpen",
+            "ObDepositProlongation",
+            "UfsDepositClose",
+            "UfsDepositIncome",
+            "UfsDepositOpen",
+            "UfsEscrowAddAgreement",
+            "UfsEscrowApplication",
+            "UfsEscrowConcession",
+            "UfsEscrowRefundAccountUpdate",
+            "UfsEscrowRefundAmount",
+            "UfsPOACancel",
+            "UfsPOACreate",
+            "UfsPOARefuse",
+            "UFSSafeBoxRentFLClient",
+            "UfsSafeBoxRentOmny",
+            "UfsSafeBoxRentRequest",
+            "UfsSafeProlongRequest",
+            "UfsRegPremNSZH",
+            "UfsRegMassNsg",
+            "UfsRegMassSbolNSZH",
+            "UfsRegNSZH"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_safe_arrow_down_left",
+        "collectionName": "common",
+        "operations": [
+            "ExtDepositCashIn",
+            "ExtDepositTransferIn",
+            "ObDepositAdding",
+            "UfsPensionPaymentIppRequest",
+            "UfsStateServicesPensionTransfer",
+            "UfsTMClosure",
+            "UfsTMCreate",
+            "UfsTMReplenishment",
+            "UfsTMTransformation"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_safe_arrow_up_right",
+        "collectionName": "common",
+        "operations": [
+            "ExtDepositCashOut",
+            "ExtDepositTransferOut",
+            "ObDepositWithdrawal"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_safe_diagram",
+        "collectionName": "common",
+        "operations": [
+            "UfsCPPPensionAutopay"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_sberpay",
+        "collectionName": "common",
+        "operations": [
+            "UfsSberPayBindingDeactivation",
+            "UfsSberPayBindingResourceChange",
+            "UfsSberPayConnect"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_shaking_hands_alt1",
+        "collectionName": "common",
+        "operations": [
+            "UfsCivilDealsTransferFunds",
+            "UfsDealsRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_shield",
+        "collectionName": "common",
+        "operations": [
+            "ObInsurancePayment",
+            "UfsAPHealthInsuaranceOffer",
+            "UfsAvtoKaskoInsurance",
+            "UfsAvtoOsagoInsurance",
+            "UfsCardInsurance",
+            "UfsComboInsurance",
+            "UfsDmsInsurance",
+            "UfsDriverProtection",
+            "UfsEstateInsurance",
+            "UfsEstateMortgageInsurance",
+            "UfsFamilyInsurance",
+            "UfsHorizonInsurance",
+            "UfsIliRegAssistRequest",
+            "UfsIliRegRequest",
+            "UfsInsurancePolicy",
+            "UfsLifeMortgageInsurance",
+            "UfsLoanLifeInsurancePK",
+            "UfsLostJobMortgageIns",
+            "UfsPetInsurance",
+            "UfsQueryInsurance",
+            "UfsSportInsurance",
+            "UfsTravelInsurance",
+            "UfsDszhPackageInsuranceOffer",
+            "UfsLifeRiderMortgageInsurance",
+            "UfsWatchInsurance",
+            "UfsScreenInsurance",
+            "UfsContractManualPayment"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_shield_checkmark",
+        "collectionName": "common",
+        "operations": [
+            "UfsParentalControlWithdrawChild",
+            "UfsParentalControlWithdrawParent",
+            "UfsSafeDealCreate"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_shield_three_lines",
+        "collectionName": "common",
+        "operations": [
+            "UfsIndividualLetterOfCreditAcceptanceRevoke",
+            "UfsIndividualLetterOfCreditApplication",
+            "UfsIndividualLetterOfCreditDiscrepancies",
+            "UfsIndividualLetterOfCreditRevocation"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_spasibo",
+        "collectionName": "common",
+        "operations": [
+            "UfsLoyaltySpasibo"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_star_alt1",
+        "collectionName": "common",
+        "operations": [
+            "UfsLikeSalaryClient",
+            "UfsPbConsultationRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_student_hat",
+        "collectionName": "common",
+        "operations": [
+            "UfsCreditEducationalChangeConditions",
+            "UfsInvestCMFInterviewRequest",
+            "UfsInvestQualRequest",
+            "UfsInvestZpifInterviewRequest",
+            "UfsEducationClaim",
+            "UfsCompensation",
+            "UfsEducationTrancheClaim"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_user",
+        "collectionName": "common",
+        "operations": [
+            "UfsAbroadTransferCashPaymentEdit",
+            "UfsCreateMeetingRequest",
+            "UfsDeleteMeetingRequest",
+            "UfsDriversLicenseAdd",
+            "UfsDriversLicenseDelete",
+            "UfsDriversLicenseUpdate",
+            "UfsEmailAdd",
+            "UfsEmailConfirm",
+            "UfsEmailDelete",
+            "UfsEmailUpdate",
+            "UfsInnAdd",
+            "UfsInnDelete",
+            "UfsInnUpdate",
+            "UfsPassportUpdate",
+            "UfsPhoneConfirm",
+            "UfsPhoneNumberAdd",
+            "UfsPhoneNumberDelete",
+            "UfsPhoneNumberUpdate",
+            "UfsProfileChange",
+            "UfsSnilsAdd",
+            "UfsSnilsDelete",
+            "UfsSnilsUpdate",
+            "UfsStsAdd",
+            "UfsStsDelete",
+            "UfsStsUpdate",
+            "UfsUpdateMeetingRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_user_on_user",
+        "collectionName": "common",
+        "operations": [
+            "UfsAcceptNotificationSharingInvite",
+            "UfsAddNotificationSharingKids",
+            "UfsAddSharedProduct",
+            "UfsApplyNotificationSharing",
+            "UfsCancelSharingReq",
+            "UfsChangeSharingPaymentCard",
+            "UfsConfirmSharingProposal",
+            "UfsDecisionDoubleCheck",
+            "UfsDeclineNotificationSharingInvite",
+            "UfsDeclineSharingProposal",
+            "UfsDeleteSharedProduct",
+            "UfsDoubleCheckEnable",
+            "UfsDoubleCheckDisable",
+            "UfsPaymentAccountSharingAccept",
+            "UfsPaymentAccountSharingByOwner",
+            "UfsPmntAccntCancelSharingByConfidant",
+            "UfsPmntAccntCancelSharingByOwner",
+            "UfsReclaimNotificationSharingInvite",
+            "UfsRefuseNotificationSharing",
+            "UfsRejectNotificationSharing",
+            "UfsSendNotificationSharingInvite",
+            "UfsSharingAccept",
+            "UfsSharingCancel",
+            "UfsSharingInitiation",
+            "UfsSharingReject",
+            "UfsRequestSharedOption",
+            "UfsAcceptSharingReq",
+            "UfsCreateKidsSharing"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_wallet",
+        "collectionName": "common",
+        "operations": [
+            "ChangeCreditLimitClaim",
+            "CreditHistorySubscriptionPay",
+            "CreditReportPayment",
+            "ExtCardLoanPayment",
+            "ExtDepositFee",
+            "ExtDepositSalary",
+            "LoanOffer",
+            "LoanPayment",
+            "LoanProduct",
+            "ObDebtRepayment",
+            "ObLoanPayment",
+            "ObLoanRepayment",
+            "ObSalaryAdding",
+            "UfsBuyCreditHistoryReport",
+            "UfsEarlyRepayment",
+            "UfsExtAccountSalary",
+            "UfsExtCardSalary",
+            "UfsExtDepositLoanPayment",
+            "UfsExtLoanIncome",
+            "UfsLoanClaim",
+            "UfsRefinancingClaim",
+            "UfsSalaryCashIn",
+            "UfsSalaryCashOut",
+            "UfsNonPurposeRequestSBOL"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_wallet_check",
+        "collectionName": "common",
+        "operations": [
+            "UfsTransferSubscription"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_digital_wallet",
+        "collectionName": "common",
+        "operations": [
+            "UfsDigitalWalletOpen"
+        ]
+    },
+    {
+        "iconName": "ds_mc_36_sber_alt1",
+        "collectionName": "multicolor",
+        "operations": [
+            "RemoteConnectionUDBOClaim",
+            "UfsExtSberTipsIncome",
+            "UfsExtTargetAutoReplenishment",
+            "UfsDBOInMobileByTheGosKey"
+        ]
+    },
+    {
+        "iconName": "ds_tc_36_sber",
+        "collectionName": "tokencolor",
+        "operations": [
+            "UfsExtChangeCreditLimitNotification",
+            "UfsExtMarketingNotification",
+            "UfsExtSecurityCodesNotification",
+            "UfsExtServiceNotification",
+            "UfsExtStatePostNotification",
+            "UfsF2fAuth",
+            "UfsF2fAuthGk",
+            "UfsF2fFns",
+            "UfsProfileAutoConnectOff",
+            "UfsProfileAutoConnectOn",
+            "UfsProfileChangePhoneNumber",
+            "UfsProfileCreate",
+            "UfsProfileNoticeOff",
+            "UfsProfileNoticeOn",
+            "UfsReuseInMobileCurrentProduct"
+        ]
+    },
+    {
+        "iconName": "ds_mc_36_sbermobile",
+        "collectionName": "multicolor",
+        "operations": [
+            "UfsEsimBranchActivationRequest",
+            "UfsEsimSaleBranchRequest",
+            "UfsESimSaleMobileRequest",
+            "UfsInstallESimSaleMobileRequest",
+            "UfsSimChangeRequest",
+            "UfsSimSaleBranchRequest",
+            "UfsSimSaleWebRequest",
+            "UfsSimActivationBranchRequest"
+        ]
+    },
+    {
+        "iconName": "ds_mc_36_sberprime_alt1",
+        "collectionName": "multicolor",
+        "operations": [
+            "UfsExtSberPrimePayment",
+            "UfsExtSberPrimePaymentRefund",
+            "UfsExtSberprimeRecurrentRequest",
+            "UfsSberprimeActivateRequest",
+            "UfsSberprimeEditRequest",
+            "UfsSberprimePlusRecurrentRequest",
+            "UfsSberprimeSubscribeRequest",
+            "UfsSberprimeUnsubscribeRequest"
+        ]
+    },
+    {
+        "iconName": "ds_mc_36_sbp_alt1",
+        "collectionName": "multicolor",
+        "operations": [
+            "ObTransferBySBP",
+            "UfsQRSBPAY"
+        ]
+    },
+    {
+        "iconName": "ds_mc_36_transaction_account_digital_ruble_alt",
+        "collectionName": "common",
+        "operations": [
+            "UfsDigitalRubleCertificateIssue",
+            "UfsDigitalRubleCertificateRevocate",
+            "UfsDigitalRubleChangeClientInfo",
+            "UfsDigitalRubleOperationHistory",
+            "UfsDigitalRubleWalletBlocking",
+            "UfsDigitalRubleWalletClosing",
+            "UfsDigitalRubleWalletUnblocking",
+            "UfsQrDigitalRubC2B",
+            "UfsRdcC2cOutTransfer",
+            "UfsTransferReplenishDR",
+            "UfsTransferWithdrawDR",
+            "UfcRdcC2cOutTransfer"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_heart",
+        "collectionName": "common",
+        "operations": [
+            "UfsDepositChangePercentCharityFund",
+            "UfsDepositChangeCharityFund"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_arrow_right_alt2",
+        "collectionName": "common",
+        "operations": [
+            "UfsEducationOrServise"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_pin_alt1",
+        "collectionName": "common",
+        "operations": [
+            "Creatingdeliveryapplication"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_chess_piece",
+        "collectionName": "common",
+        "operations": [
+            "UfsQualificationDoc"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_case_diagram_alt1",
+        "collectionName": "common",
+        "operations": [
+            "UfsITMCreateRequest",
+            "UfsITMReplenishRequest"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_document_alt_1",
+        "collectionName": "common",
+        "operations": [
+            "UfsInheritanceCertificate"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_banknote",
+        "collectionName": "common",
+        "operations": [
+            "UfsReceivingCash"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_arrow_right_trace_line",
+        "collectionName": "common",
+        "operations": [
+            "UfsDepoBridgeOrders"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_ingot_stack",
+        "collectionName": "common",
+        "operations": [
+            "UfsBookingWorths"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_dfa",
+        "collectionName": "common",
+        "operations": [
+            "UfsDFARedeem"
+        ]
+    },
+    {
+        "iconName": "ds_ic_24_calendar_checkmark",
+        "collectionName": "common",
+        "operations": [
+            "UfsPaymentDeferral"
+        ]
+    }
+]

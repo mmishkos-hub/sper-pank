@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#21A038">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Сбер">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="pwa-icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="pwa-icons/favicon-32.png">
+  <title>СберБанк Онлайн</title>
+  <style>
+    html, body { height: 100%; margin: 0; background: #21A038; }
+    .boot {
+      min-height: 100%; display: flex; align-items: center; justify-content: center;
+      color: #fff; font: 600 18px/1.3 system-ui, sans-serif;
+    }
+  </style>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").catch(function () {});
+    }
+    location.replace("./app/main");
+  </script>
+</head>
+<body>
+  <div class="boot">Загрузка…</div>
+  <noscript><meta http-equiv="refresh" content="0;url=Main.htm"></noscript>
+</body>
+</html>

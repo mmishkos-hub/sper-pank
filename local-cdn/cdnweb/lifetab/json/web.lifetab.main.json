@@ -1,0 +1,802 @@
+{
+  "id": "LifeStyle_Main_Web",
+  "syscontent": {
+    "usersegments": [
+      "-1"
+    ],
+    "screensegments": [
+      "0"
+    ]
+  },
+  "document": [
+    {
+      "id": "carousel_WowSlider_4",
+      "type": "WowSlider",
+      "content": {
+        "rotationTime": 10000,
+        "eventName": "carousel_web",
+        "viewsegments": [
+          "0"
+        ]
+      },
+      "children": [
+        {
+          "id": "frk_dlyavseh_wow_sbermobile_WowSliderItem_2",
+          "type": "WowSliderItem",
+          "content": {
+            "title": "Тариф со всем необходимым в СберМобайле",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/sbermobile/image_frk_dlyavseh2_sbermobile.jpg",
+            "gradientColorLeft": "#FA5F05",
+            "gradientColorRight": "#FFBC35",
+            "label": "Подробнее",
+            "linkAction": {
+              "link": "https://sbermobile.ru/",
+              "type": "INNER"
+            },
+            "eventName": "frk_dlyavseh_wow_web_sbermobile",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "navigation_block_NavigationBlock_7_NavigationBlock_1",
+      "type": "NavigationBlock",
+      "content": {
+        "size": "large",
+        "eventName": "pers_web2_navblock_ge",
+        "viewsegments": [
+          "0"
+        ]
+      },
+      "children": [
+        {
+          "id": "afisha_navblock_NavigationBlockItem_5",
+          "type": "NavigationBlockItem",
+          "content": {
+            "title": "Афиша",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/icon/logo/Avatar_Afisha.png",
+            "linkAction": {
+              "link": "https://www.afisha.ru/",
+              "type": "INNER"
+            },
+            "eventName": "afisha_web_navblock_ge",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "okko_navblock_NavigationBlockItem_5",
+          "type": "NavigationBlockItem",
+          "content": {
+            "title": "Okko",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/icon/logo/Avatar_Okko.png",
+            "linkAction": {
+              "link": "https://okko.tv/",
+              "type": "INTERNAL_BROWSER"
+            },
+            "eventName": "okko_web_navblock_ge",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "zvuk_navblock_NavigationBlockItem_4",
+          "type": "NavigationBlockItem",
+          "content": {
+            "title": "Звук",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/icon/logo/Avatar_Zvuk2.png",
+            "linkAction": {
+              "link": "https://zvuk.com/",
+              "type": "INNER"
+            },
+            "eventName": "zvuk_web_navblock_ge",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "sbermobile_navblock_NavigationBlockItem_4",
+          "type": "NavigationBlockItem",
+          "content": {
+            "title": "СберМобайл",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/icon/logo/Avatar_Sbermobile.png",
+            "linkAction": {
+              "link": "https://sbermobile.ru/",
+              "type": "INNER"
+            },
+            "eventName": "sbermobile_web_navblock_ge",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "kuper_navblock_NavigationBlockItem_5",
+          "type": "NavigationBlockItem",
+          "content": {
+            "title": "Купер",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/icon/logo/Avatar_Kuper.png",
+            "linkAction": {
+              "link": "https://kuper.ru/",
+              "type": "INNER"
+            },
+            "eventName": "kuper_web_navblock_ge",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "samokat_navblock_NavigationBlockItem_6",
+          "type": "NavigationBlockItem",
+          "content": {
+            "title": "Самокат",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/icon/logo/Avatar_Samokat.png",
+            "linkAction": {
+              "link": "https://samokat.ru/",
+              "type": "INNER"
+            },
+            "eventName": "samokat_web_navblock_ge",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "megamarket_navblock_NavigationBlockItem_5",
+          "type": "NavigationBlockItem",
+          "content": {
+            "title": "Мегамаркет",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/icon/logo/Avatar_MM.png",
+            "linkAction": {
+              "link": "https://megamarket.ru/",
+              "type": "INNER"
+            },
+            "eventName": "megamarket_web_navblock_ge",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "web_main_okko_CardBanner_1",
+      "type": "CardBannerView",
+      "content": {
+        "title": "Лучшее в Okko",
+        "size": "large",
+        "eventName": "web_main_okko",
+        "viewsegments": [
+          "0"
+        ]
+      },
+      "children": [
+        {
+          "id": "hodyach_zamok_okko_CardBannerItem_1",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Ходячий замок",
+            "subtitle": "2004, Аниме",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_bg_hauru-no-ugoku-shiro_1200x664.jpg",
+            "tagBottomRight": {
+              "text": "6+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/movie/hauru-no-ugoku-shiro&utm_source=sbol&utm_medium=lifestyle&utm_campaign=hauru-no-ugoku-shiro",
+              "type": "INNER"
+            },
+            "eventName": "hodyach_zamok_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "the-housemaid_okko_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Горничная",
+            "subtitle": "2025, Триллеры",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_the-housemaid_462x690.jpeg",
+            "tagBottomRight": {
+              "text": "18+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/movie/the-housemaid&utm_source=sbol&utm_medium=lifestyle&utm_campaign=the-housemaid",
+              "type": "INNER"
+            },
+            "eventName": "the-housemaid_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "vstat-na-nogi_okko_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Встать на ноги",
+            "subtitle": "2026, Драмы",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_vstat-na-nogi_462x690.jpg",
+            "tagBottomRight": {
+              "text": "16+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/serial/vstat-na-nogi&utm_source=sbol&utm_medium=lifestyle&utm_campaign=vstat-na-nogi",
+              "type": "INNER"
+            },
+            "eventName": "vstat-na-nogi_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "cheburashka-2_okko_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Чебурашка-2",
+            "subtitle": "2026, Семейное",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_bg_cheburashka-2_462x690.jpg",
+            "tagBottomRight": {
+              "text": "0+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/movie/cheburashka-2&utm_source=sbol&utm_medium=lifestyle&utm_campaign=cheburashka-2",
+              "type": "INNER"
+            },
+            "eventName": "cheburashka-2_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "affeksjonsverdi_okko_CardBannerItem_3",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Сентиментальная ценность",
+            "subtitle": "2025, Драмы",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_affeksjonsverdi_462x690.jpg",
+            "tagBottomRight": {
+              "text": "18+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/movie/affeksjonsverdi&utm_source=sbol&utm_medium=lifestyle&utm_campaign=affeksjonsverdi",
+              "type": "INNER"
+            },
+            "eventName": "affeksjonsverdi_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "metod-tutberidze_okko_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Метод Тутберидзе",
+            "subtitle": "Документальное",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_metod-tutberidze_462x690.jpg",
+            "tagBottomRight": {
+              "text": "18+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/serial/metod-tutberidze&utm_source=sbol&utm_medium=lifestyle&utm_campaign=metod-tutberidze",
+              "type": "INNER"
+            },
+            "eventName": "metod-tutberidze_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "vetren_holm_okko_CardBannerItem_1",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Ветреный холм",
+            "subtitle": "2024, Драмы",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_wind_hill_462x690.jpg",
+            "tagBottomRight": {
+              "text": "18+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/serial/ruzgarli-tepe&utm_source=sbol&utm_medium=lifestyle&utm_campaign=ruzgarli-tepe",
+              "type": "INNER"
+            },
+            "eventName": "vetren_holm_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "levsha-644541042_okko_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Левша",
+            "subtitle": "Фантастика",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_levsha-644541042_462x690.jpeg",
+            "tagBottomRight": {
+              "text": "12+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/movie/levsha-644541042&utm_source=sbol&utm_medium=lifestyle&utm_campaign=levsha-644541042",
+              "type": "INNER"
+            },
+            "eventName": "levsha-644541042_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "now-you-see-me-3_okko_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Иллюзия обмана 3",
+            "subtitle": "2025, Триллеры",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_now-you-see-me-3_462x690.jpg",
+            "tagBottomRight": {
+              "text": "16+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/movie/now-you-see-me-3&utm_source=sbol&utm_medium=lifestyle&utm_campaign=now-you-see-me-3",
+              "type": "INNER"
+            },
+            "eventName": "now-you-see-me-3_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "na-ldu_okko_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "На льду",
+            "subtitle": "2026, Драмы",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/okko/image_na-ldu_462x690.jpg",
+            "tagBottomRight": {
+              "text": "18+",
+              "textColor": "#FFFFFF",
+              "backgroundColor": "#00000080"
+            },
+            "linkAction": {
+              "link": "https://okko.tv/auth?to=/serial/na-ldu&utm_source=sbol&utm_medium=lifestyle&utm_campaign=na-ldu",
+              "type": "INNER"
+            },
+            "eventName": "na-ldu_web_okko",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "zvuk_main_SetCardSliderView_3",
+      "type": "SetCardSliderView",
+      "content": {
+        "title": "Актуально в Звуке",
+        "eventName": "web_main_zvuk",
+        "viewsegments": [
+          "0"
+        ]
+      },
+      "children": [
+        {
+          "id": "mc_leto_zakat_zvuk_SetCardSliderItemView_2",
+          "type": "SetCardSliderItemView",
+          "content": {
+            "title": "Вечеринка на закате",
+            "subtitle": "Плейлист",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/zvuk/mc_leto_zakat_zvuk_280_280.png",
+            "linkAction": {
+              "link": "https://zvuk.com/playlist/4810345",
+              "type": "INNER"
+            },
+            "eventName": "mc_leto_zakat_zvuk_web",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "hity_do_utra_zvuk_SetCardSliderItemView_3",
+          "type": "SetCardSliderItemView",
+          "content": {
+            "title": "Хиты до утра",
+            "subtitle": "Плейлист",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/zvuk/PZD_xity_do_utra_zvuk_280x280.png",
+            "linkAction": {
+              "link": "https://zvuk.com/playlist/7300257",
+              "type": "INNER"
+            },
+            "eventName": "hity_do_utra_web_zvuk",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "sit_trenirovka_zvuk_SetCardSliderItemView_3",
+          "type": "SetCardSliderItemView",
+          "content": {
+            "title": "Тренировка",
+            "subtitle": "Плейлист",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/zvuk/sit_trenirovka_280_280.png",
+            "linkAction": {
+              "link": "https://zvuk.com/playlist/5527959",
+              "type": "INNER"
+            },
+            "eventName": "sit_trenirovka_web_zvuk",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "ppl_top50_foreign_zvuk_SetCardSliderItemView_3",
+          "type": "SetCardSliderItemView",
+          "content": {
+            "title": "Топ-50: зарубежные хиты",
+            "subtitle": "Плейлист",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/zvuk/ppl_top50_zarubezhnyy_pop_v_hi-fi_zvuk_280_280.png",
+            "linkAction": {
+              "link": "https://zvuk.com/playlist/6477976",
+              "type": "INNER"
+            },
+            "eventName": "ppl_top50_foreign_web_zvuk",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "ppl_podpevay_zvuk_SetCardSliderItemView_3",
+          "type": "SetCardSliderItemView",
+          "content": {
+            "title": "Подпевай!",
+            "subtitle": "Плейлист",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/zvuk/ppl_podpevay_zvuk_280_280.png",
+            "linkAction": {
+              "link": "https://zvuk.com/playlist/5545792",
+              "type": "INNER"
+            },
+            "eventName": "ppl_podpevay_web_zvuk",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "vesnarain_zvuk_SetCardSliderItemView_3",
+          "type": "SetCardSliderItemView",
+          "content": {
+            "title": "Бег под дождём",
+            "subtitle": "Плейлист",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/zvuk/beg_pod_dozhdem_zvuk_280_280.png",
+            "linkAction": {
+              "link": "https://zvuk.com/playlist/8154041",
+              "type": "INNER"
+            },
+            "eventName": "vesnarain_zvuk_web",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sbermobile_best_SquareSlider_5",
+      "type": "SquareSlider",
+      "content": {
+        "title": "Больше акций СберМобайла",
+        "eventName": "web_sbermobile_best",
+        "viewsegments": [
+          "0"
+        ]
+      },
+      "children": [
+        {
+          "id": "courierdelivery_sbermobile_SquareSliderItem_5",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Сим-карта с доставкой",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/sbermobile/image_pc_dostavka_sbermobile.jpg",
+            "linkAction": {
+              "link": "https://sbermobile.ru/",
+              "type": "INNER"
+            },
+            "eventName": "courierdelivery_15dec_pdzh_web_sbermobile",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "frk_dlyavseh_sbermobile_SquareSliderItem_2",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Тариф со всем необходимым",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/sbermobile/image_frk_dlyavseh_sbermobile.jpg",
+            "linkAction": {
+              "link": "https://sbermobile.ru/",
+              "type": "INNER"
+            },
+            "eventName": "frk_dlyavseh_pdzh_web_sbermobile",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "spasibo_sbermobile_SquareSliderItem_5",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Оплачивайте связь бонусами",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/sbermobile/spasibo_new_sbermobile.jpg",
+            "linkAction": {
+              "link": "https://sbermobile.ru/",
+              "type": "INNER"
+            },
+            "eventName": "spasibo_15dec_pdzh_web_sbermobile",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "pickup_sbermobile_SquareSliderItem_7",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Забрать сим-карту в офисе Сбера",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/sbermobile/image_pc_sber_sbermobile.jpg",
+            "linkAction": {
+              "link": "https://sbermobile.ru/",
+              "type": "INNER"
+            },
+            "eventName": "pickup_15dec_pdzh_web_sbermobile",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "samokat_CardBanner_9",
+      "type": "CardBannerView",
+      "content": {
+        "title": "Доставка от 15 минут",
+        "size": "large",
+        "eventName": "web_samokat",
+        "viewsegments": [
+          "0"
+        ]
+      },
+      "children": [
+        {
+          "id": "sale_kvi_samokat_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Товары по низким ценам",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/samokat/card_sale_kvi_NEW26.jpg",
+            "linkAction": {
+              "link": "https://samokat.ru/promo/?utm_source=sber_performance_web_pdj&utm_medium=pdj_web&utm_campaign=pdj_kviweb",
+              "type": "INNER"
+            },
+            "eventName": "sale_kvi_web_samokat",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "pobalovat_kombo_naborii_samokat_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Комбо-наборы",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/samokat/card_pobalovat_kombo_naborii_NEW26.jpg",
+            "linkAction": {
+              "link": "https://samokat.ru/promo/f7d788c8-9eb5-4df0-979c-433b4a79b6ab/?utm_source=sber_performance_web_pdj&utm_medium=pdj_web&utm_campaign=pdj_kombo_web",
+              "type": "INNER"
+            },
+            "eventName": "pobalovat_kombo_naborii_web_samokat",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "interesnoe_ot_shefa_samokat_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Блюда от шеф-повара",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/samokat/card_interesnoe_ot_shefa.jpg",
+            "linkAction": {
+              "link": "https://samokat.ru/category/blyuda-ot-shefa-1/?utm_source=sber_performance_web_pdj&utm_medium=pdj_web&utm_campaign=pdj_otshefa_web",
+              "type": "INNER"
+            },
+            "eventName": "interesnoe_ot_shefa_web_samokat",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "spasibo_samokat_CardBannerItem_3",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Скидка до 99% за бонусы",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/samokat/123x184_spasibo_samokat.jpg",
+            "linkAction": {
+              "link": "https://samokat.ru/?utm_source=sber_performance_web_pdj&utm_medium=pdj_web&utm_campaign=pdj_to_main_web",
+              "type": "INNER"
+            },
+            "eventName": "spasibo_web_samokat",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "polka_samokat_CardBannerItem_3",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Выгодная полка",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/samokat/card_polka_NEW26.jpg",
+            "linkAction": {
+              "link": "https://samokat.ru/promo/?utm_source=sber_performance_web_pdj&utm_medium=pdj_web&utm_campaign=pdj_vigod_polka_web",
+              "type": "INNER"
+            },
+            "eventName": "polka_web_samokat",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "interesnoe_frov_samokat_CardBannerItem_2",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Сейчас сезон",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/samokat/card_interesnoe_frov_3.jpg",
+            "linkAction": {
+              "link": "https://samokat.ru/category/seychas-sezon/?utm_source=sber_performance_web_pdj&utm_medium=pdj_web&utm_campaign=pdj_seychas_sezon",
+              "type": "INNER"
+            },
+            "eventName": "interesnoe_frov_web_samokat",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "snacks_samokat_CardBannerItem_3",
+          "type": "CardBannerItemView",
+          "content": {
+            "title": "Чипсы под сериал",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/samokat/card_snacks_NEW26.jpg",
+            "linkAction": {
+              "link": "https://samokat.ru/category/chipsy-i-sukhariki/?utm_source=sber_performance_web_pdj&utm_medium=pdj_web&utm_campaign=pdj_sneki_web",
+              "type": "INNER"
+            },
+            "eventName": "snacks_web_samokat",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "megamarket_SquareSlider_3",
+      "type": "SquareSlider",
+      "content": {
+        "title": "Акции от Мегамаркета",
+        "eventName": "web_megamarket",
+        "viewsegments": [
+          "0"
+        ]
+      },
+      "children": [
+        {
+          "id": "nyryaemvleto_frk_1817_shsb_megamarket_SquareSliderItem_2",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Скидки до 50%",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/megamarket/adv_1817.jpg",
+            "linkAction": {
+              "link": "https://megamarket.ru/landing/nyryaem-v-leto/?utm_source=sbol&utm_medium=cpa&utm_campaign=web_pdz_1817_nyryaem-v-leto",
+              "type": "INNER"
+            },
+            "eventName": "nyryaemvleto_frk_1817_web_megamarket",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "spasibo_pdz_megamarket_SquareSliderItem_5",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Скидки до 99% за бонусы",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/megamarket/1200x664_spasibo_1774.jpg",
+            "linkAction": {
+              "link": "https://megamarket.ru/?utm_source=sbol&utm_medium=cpa&utm_campaign=web_pdz_spasibo",
+              "type": "INNER"
+            },
+            "eventName": "spasibo_web_megamarket",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "sberprime_1818_shsb_megamarket_SquareSliderItem_2",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Кешбэк до 20% с Праймом",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/megamarket/260x144_1765.jpg",
+            "linkAction": {
+              "link": "https://megamarket.ru/promo-page/vygodno-s-praymom/?utm_source=sbol&utm_medium=cpa&utm_campaign=web_pdz_1818_cashback_prime",
+              "type": "INNER"
+            },
+            "eventName": "sberprime_1818_web_megamarket",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        },
+        {
+          "id": "kopite_bonusy_1814_shsb_megamarket_SquareSliderItem_2",
+          "type": "SquareSliderItem",
+          "content": {
+            "title": "Больше покупок – больше кешбэка",
+            "imageUrl": "/local-cdn/cdn/lifetab/image/megamarket/adv_1814.jpg",
+            "tagTopLeft": {
+              "text": "до 60%"
+            },
+            "linkAction": {
+              "link": "https://megamarket.ru/promo-page/kopite-bonusy/?utm_source=sbol&utm_medium=cpa&utm_campaign=web_pdz_1814_kopite_bonusy",
+              "type": "INNER"
+            },
+            "eventName": "kopite_bonusy_1814_web_megamarket",
+            "viewsegments": [
+              "0"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

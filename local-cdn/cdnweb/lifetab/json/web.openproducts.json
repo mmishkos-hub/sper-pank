@@ -1,0 +1,108 @@
+{
+    "id": "Savings",
+    "syscontent": {
+        "usersegments": [
+            "-1"
+        ],
+        "screensegments": [
+            "0"
+        ]
+    },
+    "document": [
+        {
+            "id": "Savings_ServiceSliderView_WEB_1",
+            "type": "ServiceSliderView",
+            "content": {
+                "title": "",
+                "subtitle": "",
+                "size": "S",
+                "eventName": "Savings",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "savings_ServiceSliderItemView_WEB_1",
+                    "type": "ServiceSliderItemView",
+                    "content": {
+                        "title": "Вклад",
+                        "subtitle": "",
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_safes.svg",
+                        "link": "accounts.open",
+                        "validationLink": "",
+                        "warningMessage": "",
+                        "eventName": "deposit_savings",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "savings_ServiceSliderItemView_WEB_2",
+                    "type": "ServiceSliderItemView",
+                    "content": {
+                        "title": "Инвестиции",
+                        "subtitle": "",
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ds_ic_36_case_diagram.svg",
+                        "link": "investments.dashboard",
+                        "validationLink": "",
+                        "warningMessage": "",
+                        "eventName": "invest_savings",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "savings_ServiceSliderItemView_WEB_3",
+                    "type": "ServiceSliderItemView",
+                    "content": {
+                        "title": "Пенсии",
+                        "subtitle": "",
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_safe_diagram.svg",
+                        "link": "pension.catalog",
+                        "validationLink": "",
+                        "warningMessage": "",
+                        "eventName": "pension_savings",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "savings_ServiceSliderItemView_WEB_4",
+                    "type": "ServiceSliderItemView",
+                    "content": {
+                        "title": "Металлы",
+                        "subtitle": "",
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_ingot.svg",
+                        "link": "ima.dashboard",
+                        "validationLink": "",
+                        "warningMessage": "",
+                        "eventName": "metal_savings",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "savings_ServiceSliderItemView_WEB_5",
+                    "type": "ServiceSliderItemView",
+                    "content": {
+                        "title": "Цель или конверт",
+                        "subtitle": "",
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_mail.svg",
+                        "link": "goals",
+                        "validationLink": "",
+                        "warningMessage": "",
+                        "eventName": "goals_savings",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

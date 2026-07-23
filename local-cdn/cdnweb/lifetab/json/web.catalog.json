@@ -1,0 +1,834 @@
+{
+    "id": "glavniy_web",
+    "syscontent": {
+        "usersegments": [
+            "-1"
+        ],
+        "screensegments": [
+            "0"
+        ]
+    },
+    "document": [
+        {
+            "id": "bank_ProductTabsView_web_1",
+            "type": "ProductTabsView",
+            "content": {
+                "menuButtonEnabled": true,
+                "view": "tile",
+                "eventName": "bank_and_ecosystem",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "banks_ProductTabView_web_1",
+                    "type": "ProductTabView",
+                    "content": {
+                        "tabName": "Банк",
+                        "subtitle": "Все сервисы онлайн",
+                        "eventName": "banks",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    },
+                   "children": [
+                        {
+                            "id": "debet_cards_ProductTabItemView_web_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Дебетовые карты",
+                                "subtitle": "",
+                                "detailLink": "cards.debit",
+                                "link": "cards.debit",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_debit_cards_square_96x96.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/ic-36-card.svg",
+                                "iconBackground": "#e3f9e5",
+                                "eventName": "debet_cards",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "credit_cards_ProductTabItemView_web_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Кредитные карты",
+                                "subtitle": "",
+                                "detailLink": "cards.credit",
+                                "link": "cards.credit",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_credit_cards_square_96x96.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/ic-36-card-chevron-left.svg",
+                                "iconBackground": "#e3f9e5",
+                                "eventName": "credit_cards",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },{
+                            "id": "cta_open_ProductTabItemView_web_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Платёжный счёт",
+                                "subtitle": "",
+                                "detailLink": "link.cta.open.from.catalog",
+                                "link": "link.cta.open.from.catalog",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_transaction_account_square_96x96_2.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/ic_36_banknote_black.svg",
+                                "iconBackground": "#EAEAF4",
+                                "eventName": "cta_open",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "deposits_ProductTabItemView_web_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Вклады и счета",
+                                "subtitle": "Оформить",
+                                "link": "accounts.open",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_deposits_square_96x96.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/ic-36-safe.svg",
+                                "iconBackground": "#eaf9f9",
+                                "eventName": "deposits",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "credits_ProductTabItemView_web_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Кредиты",
+                                "subtitle": "Выгодные условия",
+                                "link": "loans.dashboard",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_credits_square_96x96.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/ic-36-wallet.svg",
+                                "iconBackground": "#eaeaf4",
+                                "eventName": "credits",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "pakety_uslug_ProductTabItemView_web_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Подписки и Пакеты",
+                                "subtitle": "",
+                                "detailLink": "packages",
+                                "link": "packages",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_service_packages_square_96x96.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/ic-36-bag.svg",
+                                "iconBackground": "#efe5f9",
+                                "eventName": "pakety_uslug",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "insurance_ProductTabItemView_WEB_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Страхование",
+                                "subtitle": "",
+                                "link": "welfare.insurance.dashboard",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_insurance_square_96x96.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/image_square_48x48_strahovanie_EAEAF4.png",
+                                "iconBackground": "#EAEAF4",
+                                "eventName": "insurance",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "investment_ProductTabItemView_WEB_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title": "Инвестиции",
+                                "subtitle": "",
+                                "link": "link.investments.dashboard.catalog",
+                                "validationLink": "",
+                                "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_investments_square_96x96.png",
+                                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/image_square_48x48_investions_E5F9F4.png",
+                                "iconBackground": "#E5F9F4",
+                                "eventName": "investment",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "pension_progr_ProductTabItemView_WEB_1",
+                            "type": "ProductTabItemView",
+                            "content": {
+                                "title" : "Пенсионные программы",
+							    "subtitle" : "",
+							    "link" : "pension.dashboard",
+							    "validationLink" : "",
+							    "imageUrl" : "/local-cdn/cms-res/catalog/image/web/web_pension_programs_square_96x96.png",
+							    "iconUrl" : "/local-cdn/cms-res/catalog/image/icon/ic-36-coat-of-arms.svg",
+							    "iconBackground" : "#F4F9EA",
+							    "eventName" : "pension_progr",
+                                "viewsegments": [
+                                    "0"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "Credits_product_ListCardView_WEB_1",
+            "type": "ListCardView",
+            "content": {
+                "title": "Кредитные продукты",
+                "subtitle": "Исполнение мечты уже сегодня",
+                "detailTitle": "Все",
+                "detailLink": "loans.dashboard",
+                "iconUrl": "",
+                "shadow": true,
+                "eventName": "Credits_product",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "credits_new_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Кредит",
+                        "subtitle": "Выгодные условия",
+                        "price": "",
+                        "link": "loans.consumer",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_consumer_credit_square_160x160.png",
+                        "eventName": "credits",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "mortgage_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Ипотека",
+                        "subtitle": "",
+                        "price": "",
+                        "link": "external.ipoteka",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_mortgage_square_160x160.png",
+                        "eventName": "mortgage",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "carloans_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Автокредит",
+                        "subtitle": "",
+                        "price": "",
+                        "link": "loans.car",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_car_loan_square_160x160.png",
+                        "eventName": "carloans",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "credit_history_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Кредитная история",
+                        "subtitle": "Отчёт и персональный рейтинг",
+                        "price": "",
+                        "link": "credit.report",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_credit_history_square_160x160.png",
+                        "eventName": "credit_history",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "credit_potential_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Кредитный потенциал",
+                        "subtitle": "",
+                       "price": "",
+                        "link": "loans.creditability",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_credit_potential_square_160x160.png",
+                        "eventName": "credit_potential",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                 {
+                    "id": "loanguarantee_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Документы по кредитам юрлиц",
+                        "subtitle": "Согласия, поручительство, залоги",
+                        "price": "",
+                        "link": "loanguarantee",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_loanguarantee_square_160x160.png",
+                        "eventName": "loanguarantee",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "rassrochka_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Покупки в рассрочку",
+                        "subtitle": "В интернет-магазинах партнёров",
+                        "price": "",
+                        "link": "loans.partners",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_purchase_by_installments_square_160x160.png",
+                        "eventName": "rassrochka",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "refinance_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Рефинансирование кредитов",
+                        "subtitle": "Любого банка",
+                        "price": "",
+                        "link": "loans.refin.consumer",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_refinancing_square_160x160.png",
+                        "eventName": "refinance",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Investitment_ListCardView_web_1",
+            "type": "ListCardView",
+            "content": {
+                "title": "Инвестиции",
+                "subtitle": "Приумножьте накопления",
+                "detailTitle": "Все",
+                "detailLink": "link.investments.dashboard.catalog",
+                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/Investmentsin.png",
+                "shadow": false,
+                "eventName": "Investment",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "investitment_ListCardItemView_web_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Брокерский счёт",
+                        "subtitle": "Откройте бесплатно в СберБанк Онлайн",
+                        "price": "",
+                        "link": "link.brokerage.odbo.investment.catalog",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_brokerage_square_160x160.png",
+                        "eventName": "brokerage",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "oms_ListCardItemView_web_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Металлические счета",
+                        "subtitle": "Драгоценные металлы",
+                        "price": "",
+                        "link": "ima.open",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_metal_accounts_square_160x160.png",
+                        "eventName": "oms",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "target_ListCardItemView_web_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Новая цель",
+                        "subtitle": "Поможет накопить",
+                        "price": "",
+                        "link": "targets.select",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_new_target_square_160x160.png",
+                        "eventName": "new_target",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "pifs_ListCardItemView_web_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "ПИФы",
+                        "subtitle": "Инвестируйте в фонды",
+                        "price": "",
+                        "link": "investments.funds",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_piths_square_160x160.png",
+                        "eventName": "pifs",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "depositary_serv_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Депозитарное обслуживание",
+                        "subtitle": "Ваши активы под надёжной защитой",
+                        "price": "",
+                        "link": "depo",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_custody_service_square_160x160.png",
+                        "eventName": "depositary_serv",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "iis_actives_ListCardItemView_WEB_3",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "ИИС",
+                        "subtitle": "Инвестиции с налоговым вычетом",
+                        "price": "",
+                        "link": "link.brokerage.odbo.iis.investment.catalog",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_individual_investment_account_investment_showcase_investment_profile_square_160x160.png",
+                        "eventName": "iis",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },{
+                    "id": "kapital_ListCardItemView_web_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Управляемый капитал",
+                        "subtitle": "Инвестиции в страховой оболочке",
+                        "price": "",
+                        "link": "link.welfare.insurance.iszh.product.ul",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_upravlyaemiy_kapital_square_160x160.png",
+                        "eventName": "kapital",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "investprofile_ListCardItemView_WEB_2",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Инвестиционный профиль",
+                        "subtitle": "",
+                        "price": "",
+                        "link": "investments.profile",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_investment_profile_square_160x160.png",
+                        "eventName": "investprofile",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "usligi_SetCardSliderView_web_1",
+            "type": "SetCardSliderView",
+            "content": {
+                "title": "Услуги",
+                "subtitle": "Госуслуги, выплаты, пенсия",
+                "detailTitle": "",
+                "detailLink": "",
+                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/Statein.png",
+                "eventName": "usligi",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "biometrics_SetCardSliderItemView_web_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Биометрия",
+                        "subtitle": "Упрощённый вход в сервисы Сбербанка",
+                        "price": "",
+                        "link": "pro.biometrics",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_face_black.svg",
+                        "eventName": "biometrics",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "insurance_dia_orders_SetCardSliderItemView_web_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Страховые выплаты по вкладам",
+                        "subtitle": "Возмещения АСВ",
+                        "price": "",
+                        "link": "insurance.dia.orders",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_asv_black.svg",
+                        "eventName": "insurance_dia_orders",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "assistant_SetCardSliderItemView_web_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Проверка операций близкого",
+                        "subtitle": "Близкие рядом",
+                        "price": "",
+                        "link": "assistant",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_user_on_user_black.svg",
+                        "eventName": "assistant",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "certificates_SetCardSliderItemView_web_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Сберегательные сертификаты",
+                        "subtitle": "Выплаты",
+                        "price": "",
+                        "link": "CERTIFICATES",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_medal_black.svg",
+                        "eventName": "certificates",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "operations_statement_SetCardSliderItemView_web_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Выписки и справки",
+                        "subtitle": "По банковским продуктам онлайн",
+                        "price": "",
+                        "link": "operations.statement",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_document_on_document_black.svg",
+                        "eventName": "operations_statement",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "2ndfl_SetCardSliderItemView_WEB_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "2-НДФЛ",
+                        "subtitle": "Справка о доходах",
+                        "price": "",
+                        "link": "service.2ndfl",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_receipt1.svg",
+                        "eventName": "2ndfl",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "arrests_SetCardSliderItemView_web_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Аресты и взыскания",
+                        "subtitle": "Статус по задолженностям или требованиям",
+                        "price": "",
+                        "link": "gos.seizure.dashboard",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_scales_black.svg",
+                        "eventName": "arrests",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "cash_operations_SetCardSliderItemView_WEB_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Операции с наличными",
+                        "subtitle": "Внести наличные",
+                        "price": "",
+                        "link": "link.accounts.withdrawal.catalog",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_banknote_operaciisnalichnim.svg",
+                        "eventName": "cash_operations",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "regis_gosuslugi_SetCardSliderItemView_web_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Регистрация на Госуслугах",
+                        "subtitle": "",
+                        "price": "",
+                        "link": "gos.register",
+                       "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_gosuslugi_black.svg",
+                        "eventName": "regis_gosuslugi",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "safe_SetCardSliderItemView_WEB_1",
+                    "type": "SetCardSliderItemView",
+                    "content": {
+                        "title": "Сейфы",
+                        "subtitle": "Операции с индивидуальными сейфами",
+                        "price": "",
+                        "link": "safe",
+                        "validationLink": "",
+                        "imageUrl": "https://stories-res-web.online.sberbank.ru/catalog/image/icon/ic_36_safes.svg",
+                        "eventName": "safe",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Insurance_ListCardView_WEB_1",
+            "type": "ListCardView",
+            "content": {
+                "title": "Страхование",
+                "subtitle": "Защитите то, что вам дорого",
+                "detailTitle": "",
+                "detailLink": "welfare.insurance.dashboard",
+                "iconUrl": "",
+               "shadow": true,
+                "eventName": "Insurance",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "house_protection_ListCardItemView_WEB_2",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Защита дома",
+                        "subtitle": "Страхование отделки и имущества",
+                        "price": "",
+                        "link": "insurance.newhomeinsurance.uko",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_home_protection_square_160x160.png",
+                        "eventName": "house_protection",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "card_protection_ListCardItemView_WEB_2",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Защита карт",
+                        "subtitle": "От злоумышленников",
+                        "price": "",
+                        "link": "insurance.newcardinsurance.uko",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_card_protection_square_160x160.png",
+                        "eventName": "card_protection",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "relative_protection_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Защита близких плюс",
+                        "subtitle": "Страхование себя и близких",
+                        "price": "",
+                        "link": "insurance.familyinsurance",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_protection_of_lovedones_square_160x160.png",
+                        "eventName": "relative_protection",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "traveller_insurance_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title": "Страхование путешественников",
+                        "subtitle": "По России и за рубежом",
+                        "price": "",
+                        "link": "insurance.travellerinsurance",
+                        "validationLink": "",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_travel_insurance_square_160x160.png",
+                        "eventName": "traveller_insurance",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "ipoteka_home_protection_efc_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title" : "Ипотечное страхование",
+						"subtitle" : "Страхование недвижимости заёмщика ПАО Сбербанк",
+						"price" : "",
+						"link" : "insurance.newmortageinsurance",
+						"validationLink" : "",
+						"imageUrl" : "/local-cdn/cms-res/catalog/image/web/web_mortgage_insurance_square_160x160.png",
+						"eventName" : "ipoteka_home_protection_efc",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "ipoteka_life_protection_efc_ListCardItemView_WEB_1",
+                    "type": "ListCardItemView",
+                    "content": {
+                        "title" : "Ипотечное страхование жизни",
+						"subtitle" : "Продление страхования жизни заёмщика ипотеки",
+						"price" : "",
+						"link" : "insurance.newborrowerinsurance",
+						"validationLink" : "",
+						"imageUrl" : "/local-cdn/cms-res/catalog/image/web/web_mortgage-life_insurance_square_160x160.png",
+						"eventName" : "ipoteka_life_protection_efc",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "business_ProductBannerView_web_1",
+            "type": "ProductBannerView",
+            "content": {
+                "title": "Бизнесу",
+                "subtitle": "Вспомогательные сервисы",
+                "detailTitle": "",
+                "detailLink": "",
+                "iconUrl": "/local-cdn/cms-res/catalog/image/icon/Statein.png",
+                "eventName": "business",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "businessidea_ProductBannerItemView_web_1",
+                    "type": "ProductBannerItemView",
+                    "content": {
+                        "title": "Оценка бизнес-идей",
+                        "subtitle": "Проанализируем финансовую сторону вашей бизнес-идеи",
+                        "link": "businessidea",
+                        "linkText": "Попробовать",
+                        "validationLink": "",
+                        "fontColor": "Light",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_evaluation_of_business_ideas_vertical_152x168.png",
+                        "iconUrl": "",
+                        "backgroundColor": "#E3F9E5",
+                        "eventName": "businessidea",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "selfemployed_ProductBannerItemView_web_1",
+                    "type": "ProductBannerItemView",
+                    "content": {
+                        "title": "Своё дело",
+                        "subtitle": "Ведите свою деятельность официально - без отчётности, онлайн-кассы, бухгалтера или посещения налоговой",
+                        "link": "SelfEmployed",
+                        "linkText": "Оформить",
+                        "validationLink": "",
+                        "fontColor": "Light",
+                        "imageUrl": "/local-cdn/cms-res/catalog/image/web/web_your_business_vertical_152x168.png",
+                        "iconUrl": "",
+                        "backgroundColor": "#EAF9F9",
+                        "eventName": "selfemployed",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

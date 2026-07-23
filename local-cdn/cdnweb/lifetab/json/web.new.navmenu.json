@@ -1,0 +1,679 @@
+{
+    "id": "navmenu_tabs",
+    "syscontent": {
+        "usersegments": [
+            "-1"
+        ],
+        "screensegments": [
+            "0"
+        ]
+    },
+    "document": [
+        {
+            "id": "tabs_TabsView_WEB_1",
+            "type": "TabsView",
+            "content": {
+                "eventName": "tabs",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "finance_TabsItemView_WEB_1",
+                    "type": "TabsItemView",
+                    "content": {
+                        "title": "Финансы",
+                        "bindGroupIndexes": [
+                            "finance_ExpandableView_WEB_1",
+                            "prive_and_bonus_ExpandableView_WEB_1",
+                            "credits_ExpandableView_WEB_1",
+                            "investment_and_pencia_ExpandableView_WEB_1",
+                            "Uslugi_ExpandableView_WEB_1"
+                        ],
+                        "eventName": "finance",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "gosuslugi_TabsItemView_WEB_1",
+                    "type": "TabsItemView",
+                    "content": {
+                        "title": "Госуслуги",
+                        "bindGroupIndexes": [
+                            "gosuslugi_ExpandableView_WEB_1",
+                            "GU_spravki_gos_ExpandableView_WEB_1"
+                        ],
+                        "eventName": "gosuslugi",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "open_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Оформить",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": true,
+                "eventName": "open",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "prime_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "СберПрайм",
+                        "subtitle": "",
+                        "link": "sberprime",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_sberprime.png",
+                        "iconResourceId": "",
+                        "eventName": "prime_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "deposit_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Вклад или счёт",
+                        "subtitle": "",
+                        "link": "accounts.open",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_safe.svg",
+                        "iconResourceId": "",
+                        "eventName": "deposit_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "creditcard_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Кредитную карту",
+                        "subtitle": "",
+                        "link": "cards.credit.list",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_card_chevron_left1.svg",
+                        "iconResourceId": "",
+                        "eventName": "creditcard_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "debetcard_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Дебетовую карту",
+                        "subtitle": "",
+                        "link": "cards.debit",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_card1.svg",
+                        "iconResourceId": "",
+                        "eventName": "debetcard_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "credit_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Кредит",
+                        "subtitle": "",
+                        "link": "loans.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_wallet.svg",
+                        "iconResourceId": "",
+                        "eventName": "credit_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "insurance_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Страховой продукт",
+                        "subtitle": "",
+                        "link": "insurance.products",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_shield.svg",
+                        "iconResourceId": "",
+                        "eventName": "insurance_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "investment_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Инвестициии",
+                        "subtitle": "",
+                        "link": "investments.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_case_diagram.svg",
+                        "iconResourceId": "",
+                        "eventName": "investment_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "pension_bottom_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Пенсии и сбережения",
+                        "subtitle": "",
+                        "link": "pension.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_coat_of_arms1.svg",
+                        "iconResourceId": "",
+                        "eventName": "pension_bottom",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "credits_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Кредиты",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": false,
+                "eventName": "credits",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "potrebcredit_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Потребительский кредит",
+                        "subtitle": "",
+                        "link": "loans.consumer",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_wallet_lines.svg",
+                        "iconResourceId": "ic_36_wallet_lines",
+                        "eventName": "potrebcredit",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "creditpotential_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Кредитный потенциал",
+                        "subtitle": "",
+                        "link": "loans.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_round_speech_bubble_question.svg",
+                        "iconResourceId": "ic_36_round_speech_bubble_question",
+                        "eventName": "creditpotential",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "businesspotential_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Бизнес-потенциал",
+                        "subtitle": "",
+                        "link": "businessidea",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/stories-res/catalog/image/icon/ic_36_case.svg",
+                        "iconResourceId": "ic_36_case",
+                        "eventName": "businesspotential",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "credit_history_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Кредитная история",
+                        "subtitle": "",
+                        "link": "credit.report",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_document_rating.svg",
+                        "iconResourceId": "ic_36_document_rating",
+                        "eventName": "credit_history",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "allcredits_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Все кредиты",
+                        "subtitle": "",
+                        "link": "loans.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_wallet.svg",
+                        "iconResourceId": "ic_36_wallet",
+                        "eventName": "allcredits",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "gosuslugi_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Услуги от государства",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": false,
+                "eventName": "gosuslugi",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "matkap_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Маткапитал",
+                        "subtitle": "",
+                        "link": "link.gos.services.maternalCapital",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_pram.svg",
+                        "iconResourceId": "",
+                        "eventName": "matkap",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "asv_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Страховые выплаты по вкладам",
+                        "subtitle": "",
+                        "link": "insurance.dia.orders",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_safe.svg",
+                        "iconResourceId": "",
+                        "eventName": "asv",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "registrationGU_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Регистрация на Госуслугах",
+                        "subtitle": "",
+                        "link": "gos.register",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_gosuslugi.svg",
+                        "iconResourceId": "",
+                        "eventName": "registrationGU",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "arests_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Аресты и взыскания",
+                        "subtitle": "",
+                        "link": "gos.seizure.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_scales.svg",
+                        "iconResourceId": "",
+                        "eventName": "arests",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Uslugi_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Сервисы",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": false,
+                "eventName": "services",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "vipiska_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Выписки и справки",
+                        "subtitle": "",
+                        "link": "operations.statement",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_document.svg",
+                        "iconResourceId": "ic_36_document",
+                        "eventName": "vipiska",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "insurance_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Страхование",
+                        "subtitle": "",
+                        "link": "welfare.insurance.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_shield.svg",
+                        "iconResourceId": "ic_36_shield",
+                        "eventName": "insurance",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "packages_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Подписки и пакеты",
+                        "subtitle": "",
+                        "link": "packages",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_bag.svg",
+                        "iconResourceId": "ic_36_bag",
+                        "eventName": "packages",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "finance_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Кошелёк",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": false,
+                "eventName": "finance",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "debet_cards_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Оформить дебетовую карту",
+                        "subtitle": "",
+                        "link": "cards.debit",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_card1.svg",
+                        "iconResourceId": "",
+                        "eventName": "debet_cards",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "credit_cards_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Оформить кредитную карту",
+                        "subtitle": "",
+                        "link": "cards.credit",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_card_chevron_left1.svg",
+                        "iconResourceId": "",
+                        "eventName": "credit_cards",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "transactionwallet_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Платёжные счета",
+                        "subtitle": "",
+                        "link": "link.cta.open.from.catalog",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_banknote.svg",
+                        "iconResourceId": "ic_36_banknote",
+                        "eventName": "transactionwallet",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "GU_spravki_gos_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Справки от государства",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": false,
+                "eventName": "GU_spravki_gos",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "electronic_workbook_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Выписка из электронной трудовой книжки",
+                        "subtitle": "",
+                        "link": "link.gos.services.electronicWorkbook",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_document.svg",
+                        "iconResourceId": "",
+                        "eventName": "electronic_workbook",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "socfond_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Выписка из Социального фонда России",
+                        "subtitle": "",
+                        "link": "link.gos.services.electronicWorkbook",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_document_on_document.svg",
+                        "iconResourceId": "",
+                        "eventName": "socfond",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "investment_and_pencia_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Инвестиции и пенсии",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": false,
+                "eventName": "investment_and_pencia",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "investment_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Инвестиции",
+                        "subtitle": "",
+                        "link": "link.investments.dashboard.catalog",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_case_diagram.svg",
+                        "iconResourceId": "ic_36_case_diagram",
+                        "eventName": "investment",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "pensia_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Пенсионные программы",
+                        "subtitle": "",
+                        "link": "pension.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_watering_can.svg",
+                        "iconResourceId": "ic_36_watering_can",
+                        "eventName": "pensia",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": "prive_and_bonus_ExpandableView_WEB_1",
+            "type": "ExpandableView",
+            "content": {
+                "title": "Вклады и цели",
+                "subtitle": "",
+                "isOpen": true,
+                "isNotExpandable": false,
+                "eventName": "prive_and_bonus",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "deposits_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Вклады и счета",
+                        "subtitle": "",
+                        "link": "accounts.open",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_safe.svg",
+                        "iconResourceId": "ic_36_safe",
+                        "eventName": "deposits",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                },
+                {
+                    "id": "metal_ExpandableItemView_WEB_1",
+                    "type": "ExpandableItemView",
+                    "content": {
+                        "title": "Металлические счета",
+                        "subtitle": "",
+                        "link": "ima.dashboard",
+                        "validationLink": "",
+                        "isIconColored": false,
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ds_ic_36_ingot.svg",
+                        "iconResourceId": "ic_36_ingot",
+                        "eventName": "metal",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

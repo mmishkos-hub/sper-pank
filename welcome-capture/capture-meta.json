@@ -1,0 +1,14 @@
+{
+  "capturedAt": "2026-07-22T12:18:00Z",
+  "sourceUrl": "https://online.sberbank.ru/app/main",
+  "theme": "autumn_2025",
+  "variant": "portrait",
+  "firstName": "Пётр",
+  "timeGreeting": "Добрый день",
+  "hour": 15,
+  "configUrl": "https://cdnweb.sberbank.ru/greeting/loaders/web_config_v3.json",
+  "imageUrl": "https://cdnweb.sberbank.ru/greeting/loaders/autumn_2025-portrait.jpeg",
+  "gradient": "linear-gradient(45.00deg, rgb(5, 79, 56) 15.922%,rgb(20, 91, 73) 50.653%,rgb(71, 193, 84) 98.384%),rgb(255, 255, 255)",
+  "aspectRatio": "xMaxYMid",
+  "note": "Live overlay already dismissed when capture started; reconstructed from CDN config + loaded assets + session firstName."
+}

@@ -1,0 +1,105 @@
+{
+  "9_may": {
+    "value": "9_may",
+    "description": "С Днём Победы!",
+    "value-portrait": "9_may-portrait",
+    "options": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(105.00deg, rgb(226, 229, 230) 20.000%,rgb(197, 197, 192) 56.000%,rgb(221, 223, 222) 92.000%)",
+      "start": "09.05.****",
+      "end": "09.05.****"
+    },
+    "options-portrait": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(44.66deg, rgb(222, 221, 212) 15.861%,rgb(228, 232, 230) 69.864%)"
+    }
+  },
+  "autumn_2025": {
+    "value": "autumn_2025",
+    "description": "",
+    "value-portrait": "autumn_2025-portrait",
+    "options": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(45.00deg, rgb(5, 79, 56) 15.922%,rgb(20, 91, 73) 50.653%,rgb(71, 193, 84) 98.384%),rgb(255, 255, 255)"
+    },
+    "options-portrait": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(45.00deg, rgb(5, 79, 56) 15.922%,rgb(20, 91, 73) 50.653%,rgb(71, 193, 84) 98.384%),rgb(255, 255, 255)"
+    }
+  },
+  "23_february": {
+    "value": "23_february",
+    "description": "С 23 Февраля",
+    "value-portrait": "23_february-portrait",
+    "options": {
+      "start": "23.02.****",
+      "end": "23.02.****",
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(42.30deg, rgb(252, 252, 254) 21.932%,rgb(250, 173, 137) 55.077%,rgb(183, 181, 198) 97.885%),rgb(255, 255, 255)"
+    },
+    "options-portrait": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(0.00deg, rgb(245, 247, 248) 16.785%,rgb(242, 177, 141) 52.061%,rgb(100, 162, 201) 101.123%),rgb(255, 255, 255)"
+    }
+  },
+  "8_march": {
+    "value": "8_march",
+    "description": "С 8 Марта",
+    "value-portrait": "8_march-portrait",
+    "options": {
+      "start": "08.03.****",
+      "end": "08.03.****",
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(270.00deg, rgb(31, 31, 33) 4.963%,rgb(57, 49, 34) 48.021%,rgb(22, 22, 24) 78.658%,rgb(5, 8, 20) 94.39%),rgb(255, 255, 255)"
+    },
+    "options-portrait": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(-45.00deg, rgb(157, 107, 71) 15.228%,rgb(57, 49, 34) 50.044%,rgb(14, 14, 14) 95.328%),rgb(255, 255, 255)"
+    }
+  },
+  "12_april": {
+    "value": "12_april",
+    "description": "С Днём космонавтики!",
+    "value-portrait": "12_april-portrait",
+    "options": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(45.00deg, rgb(46, 60, 82) 20.000%,rgb(94, 123, 115) 56.000%,rgb(229, 190, 126) 92.000%)",
+      "start": "12.04.****",
+      "end": "12.04.****"
+    },
+    "options-portrait": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(120.00deg, rgb(14, 33, 47) 20.000%,rgb(61, 70, 83) 56.000%,rgb(137, 125, 111) 90.693%)"
+    }
+  },
+  "1_june": {
+    "value": "1_june",
+    "description": "С Днём защиты детей!",
+    "value-portrait": "1_june-portrait",
+    "options": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(359.86deg, rgb(210, 186, 144) 15.259%,rgb(135, 203, 197) 49.997%,rgb(23, 183, 233) 94.194%)",
+      "start": "01.06.****",
+      "end": "01.06.****"
+    },
+    "options-portrait": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(168.82deg, rgb(53, 187, 225) 18.796%,rgb(189, 175, 151) 54.770%,rgb(189, 143, 95) 90.300%)"
+    }
+  },
+  "12_june": {
+    "value": "12_june",
+    "description": "С Днём России",
+    "value-portrait": "12_june-portrait",
+    "options": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(165.00deg, rgb(48, 55, 91) 20.000%,rgb(70, 52, 81) 56.000%,rgb(36, 35, 68) 92.000%)",
+      "start": "12.06.****",
+      "end": "12.06.****"
+    },
+    "options-portrait": {
+      "aspectRatio": "xMaxYMid",
+      "gradient": "linear-gradient(135.00deg, rgb(80, 93, 129) 20.000%,rgb(115, 81, 95) 56.000%,rgb(88, 70, 75) 92.000%)"
+    }
+  }
+}

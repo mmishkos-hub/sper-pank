@@ -1,0 +1,22 @@
+{
+  "options": [
+    {
+      "name": "operationsPaginationSize",
+      "value": "512",
+      "description": "Размер результирующей выборки для пагинации",
+      "features": "newWebDesign"
+    },
+    {
+      "name": "incomeSettingsCategoryOrder",
+      "value": "14;16;30;28",
+      "description": "Порядок категорий дохода в настройках",
+      "features": "newWebDesign"
+    },
+    {
+      "name": "outcomeSettingsCategoryOrder",
+      "value": "3;2;29;27",
+      "description": "Порядок категорий расхода в настройках",
+      "features": "newWebDesign"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+    "summer": {
+        "value": "summer",
+        "options": {
+            "aspectRatio": "xMidYMid",
+            "gradient": "linear-gradient(135.00deg, rgb(7, 25, 25) 16.438%,rgb(49, 151, 96) 52.45%,rgb(21, 211, 149) 99.04%),rgb(255, 255, 255)"
+        }
+    },
+    "knowledge-day": {
+        "value": "knowledge-day",
+        "options": {
+            "start": "01.09.****",
+            "aspectRatio": "xMidYMid",
+            "end": "01.09.****",
+            "gradient": "linear-gradient(135.00deg, rgb(133, 205, 235) 16.438%,rgb(94, 214, 173) 47.415%,rgb(218, 227, 26) 99.863%),rgb(255, 255, 255)"
+        }
+    },
+    "nation-day": {
+        "value": "nation-day",
+        "options": {
+            "start": "04.11.****",
+            "end": "04.11.****",
+            "aspectRatio": "xMidYMid",
+            "gradient": "linear-gradient(135.00deg, rgb(46, 158, 200) 0.906%,rgb(138, 80, 9) 54.838%,rgb(2, 46, 75) 100%),rgb(255, 255, 255)"
+        }
+    },
+    "sber-birthday": {
+        "value": "sber-birthday",
+        "options": {
+            "start": "12.11.****",
+            "end": "14.11.****",
+            "aspectRatio": "xMidYMid",
+            "gradient": "linear-gradient(135.00deg, rgb(120, 214, 47) 16.412%,rgb(69, 225, 118) 55.15%,rgb(14, 212, 199) 100%),rgb(255, 255, 255)"
+        }
+    },
+    "mother-day": {
+        "value": "mother-day",
+        "options": {
+            "zMonth": "11",
+            "aspectRatio": "xMidYMid",
+            "xDayOfWeek": "7",
+            "yWeek": "-1",
+            "gradient": "linear-gradient(135.00deg, rgb(182, 155, 121) 16.412%,rgb(182, 141, 101) 55.965%,rgb(207, 162, 125) 100%),rgb(255, 255, 255)"
+        }
+    },
+    "new-year-1": {
+        "value": "new-year-1",
+        "options": {
+            "start": "31.12.****",
+            "aspectRatio": "xMidYMid",
+            "end": "31.12.****",
+            "gradient": "linear-gradient(135.00deg, rgb(0, 2, 27) 0.02%,rgb(0, 41, 63) 53.146%,rgb(0, 24, 60) 98.655%),rgb(255, 255, 255)"
+        }
+    },
+    "new-year-2": {
+        "value": "new-year-2",
+        "options": {
+            "start": "01.01.****",
+            "end": "04.01.****",
+            "aspectRatio": "xMidYMid",
+            "gradient": "linear-gradient(135.00deg, rgb(0, 2, 27) 0.02%,rgb(0, 41, 63) 53.146%,rgb(0, 24, 60) 98.655%),rgb(255, 255, 255)"
+        }
+    },
+    "23-february": {
+        "value": "23-february",
+        "options": {
+            "start": "23.02.****",
+            "end": "23.02.****",
+            "aspectRatio": "xMidYMid",
+            "gradient": "linear-gradient(135.00deg, rgb(13, 49, 71) 0.02%,rgb(14, 127, 133) 52.026%,rgb(12, 47, 66) 99.587%),rgb(255, 255, 255)"
+        }
+    },
+    "12-april": {
+        "value": "12-april",
+        "options": {
+            "start": "12.04.****",
+            "end": "12.04.****",
+            "aspectRatio": "xMidYMid",
+            "gradient": "linear-gradient(135.00deg, rgb(1, 15, 28) 0.02%,rgb(2, 34, 57) 52.807%,rgb(1, 54, 86) 100%),rgb(255, 255, 255)"
+        }
+    },
+    "9-may": {
+        "value": "9-may",
+        "options": {
+            "start": "09.05.****",
+            "aspectRatio": "xMidYMid",
+            "end": "09.05.****",
+            "gradient": "linear-gradient(135.00deg, rgb(13, 51, 62) 0.02%,rgb(13, 66, 64) 53.74%,rgb(15, 44, 54) 100%),rgb(255, 255, 255)"
+        }
+    },
+    "child-day": {
+        "value": "child-day",
+        "options": {
+            "start": "01.06.****",
+            "aspectRatio": "xMidYMid",
+            "end": "01.06.****",
+            "gradient": "linear-gradient(180.00deg, rgb(121, 210, 30) 3.735%,rgb(73, 194, 117) 54.895%,rgb(27, 179, 203) 100%),rgb(255, 255, 255)"
+        }
+    },
+    "russia-day": {
+        "value": "russia-day",
+        "options": {
+            "start": "12.06.****",
+            "aspectRatio": "xMidYMid",
+            "end": "12.06.****",
+            "gradient": "linear-gradient(135.00deg, rgb(31, 37, 33) 0.02%,rgb(103, 116, 124) 54.442%,rgb(142, 134, 72) 100%),rgb(255, 255, 255)"
+        }
+    }
+}

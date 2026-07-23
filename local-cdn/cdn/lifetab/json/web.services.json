@@ -1,0 +1,44 @@
+{
+    "id": "testge",
+    "syscontent": {
+        "usersegments": [
+            "-1"
+        ],
+        "screensegments": [
+            "0"
+        ]
+    },
+    "document": [
+        {
+            "id": "Services_ServiceSliderView_WEB_1",
+            "type": "ServiceSliderView",
+            "content": {
+                "title": "",
+                "subtitle": "",
+                "eventName": "Services",
+                "viewsegments": [
+                    "0"
+                ]
+            },
+            "children": [
+                {
+                    "id": "all_services_ServiceSliderItemView_WEB_1",
+                    "type": "ServiceSliderItemView",
+                    "content": {
+                        "title": "Все сервисы",
+                        "subtitle": "",
+                        "iconUrl": "/local-cdn/cdnweb/lifetab/image/icon/ic_36_card_grid.svg",
+                        "isIconColored": false,
+                        "link": "catalog",
+                        "validationLink": "",
+                        "warningMessage": "",
+                        "eventName": "all_services",
+                        "viewsegments": [
+                            "0"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
