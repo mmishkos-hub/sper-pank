@@ -44,7 +44,10 @@
     if (document.querySelector(".scaffold__nav")) {
       banner.classList.add("joke-app-banner--with-nav");
     }
-    var footerHost = document.querySelector(".scaffold__section") || document.body;
+    var footerHost =
+      document.querySelector(".scaffold__section") ||
+      document.querySelector(".admin-container") ||
+      document.body;
     footerHost.appendChild(banner);
   }
 
