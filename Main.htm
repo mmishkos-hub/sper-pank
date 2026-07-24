@@ -1394,7 +1394,7 @@ html.online-lock-open body {
   }
   document.addEventListener('click', function (event) {
     var avatar = event.target.closest && event.target.closest(
-      '#profile-link-main, #profile-link, #header-main-profile-avatar, #header-profile-avatar'
+      '#header-main-profile-avatar, #header-profile-avatar'
     );
     if (!avatar) return;
     event.preventDefault();
