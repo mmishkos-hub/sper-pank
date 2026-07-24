@@ -131,6 +131,17 @@ html[data-static-page] #assistant-region {
   overflow-x: clip;
 }
 
+html[data-static-page="savings"] .pwa-account-end-date {
+  margin: 2px 0 0;
+  color: var(--ds_textSecondary);
+  font-family: var(--fontFamilyText);
+  font-size: 13px;
+  font-weight: var(--fontWeightRegular);
+  line-height: 18px;
+  text-align: right;
+  white-space: nowrap;
+}
+
 /* Keep the installed PWA canvas neutral, including the iOS safe area. */
 html[data-static-page],
 html[data-static-page] body {
@@ -171,21 +182,22 @@ html[data-static-page] iframe[style*="left:-800px"] {
 
 @media (max-width: 480px) {
   html[data-static-page] main.scaffold__main {
-    padding-top: 64px;
+    padding-top: calc(64px + env(safe-area-inset-top, 0px));
   }
 
   html[data-static-page] #scaffold-header-main.scaffold__header {
     position: fixed !important;
-    top: env(safe-area-inset-top) !important;
+    top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     width: 100%;
     margin: 0 !important;
+    padding-top: env(safe-area-inset-top, 0px) !important;
     box-sizing: border-box;
     z-index: var(--z-index-header-navigation-mobile) !important;
-    background: rgba(241, 241, 241, 0.96) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    backdrop-filter: blur(16px) !important;
+    background: #f1f1f1 !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
     box-shadow: none;
     isolation: isolate;
   }
@@ -202,7 +214,7 @@ html[data-static-page] iframe[style*="left:-800px"] {
 <meta name="theme-color" content="#F1F1F1">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Онлайн">
 <link rel="apple-touch-icon" href="pwa-icons/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="pwa-icons/favicon-32.png">

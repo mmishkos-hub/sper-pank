@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#0F5B58">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Онлайн">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="pwa-icons/icon-180.png">
@@ -26,6 +26,7 @@
     try {
       sessionStorage.removeItem("onlineAppUnlocked_v1");
       sessionStorage.removeItem("onlineAppHiddenAt_v1");
+      sessionStorage.removeItem("onlineAppInternalNavigation_v1");
     } catch (e) {}
     location.replace("./Main.htm");
   </script>

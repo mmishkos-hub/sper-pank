@@ -1,6 +1,7 @@
 (function () {
   var unlockedKey = "onlineAppUnlocked_v1";
   var hiddenAtKey = "onlineAppHiddenAt_v1";
+  var internalNavigationKey = "onlineAppInternalNavigation_v1";
   var relockAfterMs = 5 * 1000;
 
   function setStaticPageTheme() {
@@ -19,6 +20,12 @@
   function markAppHidden() {
     try {
       sessionStorage.setItem(hiddenAtKey, String(Date.now()));
+    } catch (e) {}
+  }
+
+  function clearHiddenTimestamp() {
+    try {
+      sessionStorage.removeItem(hiddenAtKey);
     } catch (e) {}
   }
 
@@ -44,16 +51,51 @@
     return true;
   }
 
-  window.addEventListener("pagehide", markAppHidden);
-  window.addEventListener("pageshow", relockIfExpired);
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest && event.target.closest("a[href]");
+    if (!link) return;
+
+    var href = link.getAttribute("href");
+    if (href === "#") {
+      event.preventDefault();
+      return;
+    }
+
+    if (!href || link.target === "_blank" || link.hasAttribute("download")) return;
+
+    try {
+      var targetUrl = new URL(href, location.href);
+      if (targetUrl.origin !== location.origin) return;
+      sessionStorage.setItem(internalNavigationKey, "1");
+      clearHiddenTimestamp();
+    } catch (e) {}
+  }, true);
+
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      relockIfExpired();
+    } else {
+      clearHiddenTimestamp();
+      try {
+        sessionStorage.removeItem(internalNavigationKey);
+      } catch (e) {}
+    }
+  });
   document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === "hidden") {
-      markAppHidden();
+      try {
+        if (sessionStorage.getItem(internalNavigationKey) === "1") {
+          clearHiddenTimestamp();
+        } else {
+          markAppHidden();
+        }
+      } catch (e) {
+        markAppHidden();
+      }
     } else if (document.visibilityState === "visible") {
       relockIfExpired();
     }
   });
-  if (document.visibilityState === "visible") relockIfExpired();
 
   if (!("serviceWorker" in navigator)) return;
 

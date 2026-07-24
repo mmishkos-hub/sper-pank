@@ -346,7 +346,13 @@
         const DEFAULT_WALLET = '1 964,77';
         const DEFAULT_SBERBONUS = '111';
         const DEFAULT_SAVINGS_ACCOUNTS = [
-            { name: 'Сберегательный счет', number: '2838', amount: '15 000,22', rate: '0,01' },
+            {
+                name: 'Сберегательный счет',
+                number: '2838',
+                amount: '15 000,22',
+                rate: '0,01',
+                endDate: '2026-11-17'
+            },
             { name: 'Вклад «Лучший %»', number: '4812', amount: '120 000,00', rate: '14,5' },
             { name: 'Накопительный счет', number: '9074', amount: '45 500,00', rate: '12' }
         ];
@@ -595,6 +601,12 @@
                             <label for="accountRate${number}">Ставка (%)</label>
                             <input type="text" id="accountRate${number}" inputmode="decimal" data-account-rate required>
                         </div>
+                        ${index === 0 ? `
+                            <div class="form-group">
+                                <label for="accountEndDate${number}">Дата окончания</label>
+                                <input type="date" id="accountEndDate${number}" required>
+                            </div>
+                        ` : ''}
                     </div>
                 `;
                 accountsEditor.appendChild(fieldset);
@@ -604,7 +616,12 @@
         function readSavingsAccounts() {
             try {
                 const saved = JSON.parse(localStorage.getItem(SAVINGS_ACCOUNTS_KEY));
-                if (Array.isArray(saved) && saved.length === 3) return saved;
+                if (Array.isArray(saved) && saved.length === 3) {
+                    return DEFAULT_SAVINGS_ACCOUNTS.map((defaults, index) => ({
+                        ...defaults,
+                        ...saved[index]
+                    }));
+                }
             } catch (e) {
                 console.log('Не удалось прочитать настройки счетов', e);
             }
@@ -617,7 +634,8 @@
                 name: document.getElementById(`accountName${number}`),
                 number: document.getElementById(`accountNumber${number}`),
                 amount: document.getElementById(`accountAmount${number}`),
-                rate: document.getElementById(`accountRate${number}`)
+                rate: document.getElementById(`accountRate${number}`),
+                endDate: document.getElementById(`accountEndDate${number}`)
             };
         }
 
@@ -630,6 +648,9 @@
                 fields.number.value = account.number;
                 fields.amount.value = formatAmount(account.amount, true);
                 fields.rate.value = formatRate(account.rate);
+                if (fields.endDate) {
+                    fields.endDate.value = account.endDate || DEFAULT_SAVINGS_ACCOUNTS[index].endDate;
+                }
             });
             updateComputedSavingsTotal();
         }
@@ -637,12 +658,16 @@
         function collectSavingsAccounts() {
             return DEFAULT_SAVINGS_ACCOUNTS.map((unused, index) => {
                 const fields = getAccountFields(index);
-                return {
+                const account = {
                     name: fields.name.value.trim(),
                     number: fields.number.value.trim(),
                     amount: formatAmount(fields.amount.value, true),
                     rate: formatRate(fields.rate.value)
                 };
+                if (fields.endDate) {
+                    account.endDate = fields.endDate.value;
+                }
+                return account;
             });
         }
 
@@ -739,8 +764,9 @@
             const savingsAccounts = collectSavingsAccounts();
 
             if (!firstName || !wallet || !sberbonus ||
-                savingsAccounts.some(account =>
-                    !account.name || !account.number || !account.amount || !account.rate
+                savingsAccounts.some((account, index) =>
+                    !account.name || !account.number || !account.amount || !account.rate ||
+                    (index === 0 && !account.endDate)
                 )) {
                 alert('Пожалуйста, заполните все поля');
                 return;

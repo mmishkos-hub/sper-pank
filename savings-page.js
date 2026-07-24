@@ -10,6 +10,7 @@
       number: "2838",
       amount: "15 000,22",
       rate: "0,01",
+      endDate: "2026-11-17",
     },
     {
       name: "Вклад «Лучший %»",
@@ -28,9 +29,23 @@
   function readAccounts() {
     try {
       var saved = JSON.parse(localStorage.getItem(ACCOUNTS_KEY));
-      if (Array.isArray(saved) && saved.length === 3) return saved;
+      if (Array.isArray(saved) && saved.length === 3) {
+        return DEFAULT_ACCOUNTS.map(function (defaults, index) {
+          return Object.assign({}, defaults, saved[index]);
+        });
+      }
     } catch (e) {}
     return DEFAULT_ACCOUNTS;
+  }
+
+  function formatDate(value) {
+    var normalized = String(value || "").trim();
+    var isoMatch = normalized.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (isoMatch) {
+      return isoMatch[3] + "." + isoMatch[2] + "." + isoMatch[1];
+    }
+    var displayMatch = normalized.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+    return displayMatch ? normalized : "";
   }
 
   function amountToCents(value) {
@@ -93,16 +108,24 @@
     var template = list.querySelector("li");
     if (!template) return;
 
-    var items = accounts.map(function (account) {
+    var items = accounts.map(function (account, index) {
       var item = template.cloneNode(true);
       var amount = item.querySelector(".SSSlz0xp");
       var title = item.querySelector(".PLvGm9zM");
       var rate = item.querySelector(".toNPJsam");
+      var rateContainer = rate && rate.parentElement;
       var link = item.querySelector("a");
+      var endDate = index === 0 ? formatDate(account.endDate) : "";
 
       if (amount) amount.textContent = account.amount + " ₽";
       if (title) title.textContent = account.name + " •• " + account.number;
       if (rate) rate.textContent = account.rate + "%";
+      if (rateContainer && endDate) {
+        var date = document.createElement("p");
+        date.className = "pwa-account-end-date";
+        date.textContent = "до " + endDate;
+        rateContainer.appendChild(date);
+      }
       if (link) {
         link.setAttribute(
           "aria-label",
@@ -113,7 +136,8 @@
             account.amount +
             " ₽, " +
             account.rate +
-            "%"
+            "%" +
+            (endDate ? ", до " + endDate : "")
         );
       }
       return item;
