@@ -10,6 +10,7 @@
       number: "2838",
       amount: "15 000,22",
       rate: "0,01",
+      showEndDate: true,
       endDate: "2026-11-17",
     },
     {
@@ -17,12 +18,16 @@
       number: "4812",
       amount: "120 000,00",
       rate: "14,5",
+      showEndDate: false,
+      endDate: "2026-11-17",
     },
     {
       name: "Накопительный счет",
       number: "9074",
       amount: "45 500,00",
       rate: "12",
+      showEndDate: false,
+      endDate: "2026-11-17",
     },
   ];
 
@@ -31,9 +36,13 @@
       var saved = JSON.parse(localStorage.getItem(ACCOUNTS_KEY));
       if (Array.isArray(saved) && saved.length === 3) {
         return DEFAULT_ACCOUNTS.map(function (defaults, index) {
-          var account = Object.assign({}, defaults, saved[index]);
+          var savedAccount = saved[index] || {};
+          var account = Object.assign({}, defaults, savedAccount);
           if (index === 0 && account.name === "Сберегательный счет") {
             account.name = "Счёт";
+          }
+          if (typeof savedAccount.showEndDate !== "boolean") {
+            account.showEndDate = Boolean(savedAccount.endDate);
           }
           return account;
         });
@@ -119,7 +128,7 @@
       var rate = item.querySelector(".toNPJsam");
       var rateContainer = rate && rate.parentElement;
       var link = item.querySelector("a");
-      var endDate = index === 0 ? formatDate(account.endDate) : "";
+      var endDate = account.showEndDate ? formatDate(account.endDate) : "";
 
       item.querySelectorAll(".pwa-account-end-date").forEach(function (node) {
         node.remove();

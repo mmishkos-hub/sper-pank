@@ -8,327 +8,554 @@
     <title>Админ-панель — Онлайн</title>
     <link rel="manifest" href="manifest.webmanifest">
     <style>
+        :root {
+            color-scheme: light;
+            --page: #f4eee4;
+            --surface: #fffaf2;
+            --surface-strong: #eee2d2;
+            --field: #fffdf9;
+            --line: #d8cbbb;
+            --line-strong: #b9a58f;
+            --ink: #342b24;
+            --muted: #6d6055;
+            --accent: #8a6547;
+            --accent-hover: #735139;
+            --accent-soft: #eadac8;
+            --success-bg: #e6ecdf;
+            --success-ink: #3d5133;
+            --danger: #9b493f;
+            --focus: #7e5c42;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            background: var(--page);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #21a038 0%, #00d920 100%);
+            min-width: 320px;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
-        }
-
-        .admin-container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 760px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        h1 {
-            color: #21a038;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .admin-section {
-            margin: 36px 0 28px;
-            padding-top: 28px;
-            border-top: 2px solid #eeeeee;
-        }
-
-        .admin-section h2 {
-            margin-bottom: 8px;
-            color: #222;
-            font-size: 22px;
-        }
-
-        .section-hint {
-            margin-bottom: 22px;
-            color: #666;
-            font-size: 14px;
+            margin: 0;
+            color: var(--ink);
+            background: var(--page);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            font-size: 16px;
             line-height: 1.45;
         }
 
+        button,
+        input {
+            font: inherit;
+        }
+
+        .admin-container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 28px clamp(16px, 4vw, 56px) 48px;
+        }
+
+        .admin-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .admin-heading {
+            max-width: 720px;
+        }
+
+        h1,
+        h2,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 6px;
+            color: var(--ink);
+            font-size: 1.75rem;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .subtitle {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.9375rem;
+        }
+
+        .nav-link {
+            flex: 0 0 auto;
+            min-height: 44px;
+            padding: 11px 14px;
+            border: 1px solid var(--line-strong);
+            border-radius: 10px;
+            color: var(--ink);
+            background: var(--surface);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 650;
+        }
+
+        .nav-link:hover {
+            background: var(--accent-soft);
+        }
+
+        .nav-link:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 3px solid color-mix(in srgb, var(--focus) 32%, transparent);
+            outline-offset: 2px;
+        }
+
+        .overview-fields {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .form-group {
+            min-width: 0;
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--ink);
+            font-size: 0.875rem;
+            font-weight: 650;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            min-height: 48px;
+            padding: 11px 13px;
+            border: 1px solid var(--line-strong);
+            border-radius: 10px;
+            color: var(--ink);
+            background: var(--field);
+            font-size: 1rem;
+            transition: border-color 160ms ease-out, background-color 160ms ease-out;
+        }
+
+        input:hover {
+            border-color: var(--accent);
+        }
+
+        input:focus {
+            border-color: var(--focus);
+            outline: none;
+            background: #fff;
+        }
+
+        input:disabled {
+            border-color: var(--line);
+            color: var(--muted);
+            background: var(--surface-strong);
+            cursor: not-allowed;
+            opacity: 0.72;
+        }
+
+        .balance-preview {
+            margin-top: 9px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: var(--surface-strong);
+        }
+
+        .preview-label {
+            margin-bottom: 3px;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        .preview-value {
+            color: var(--ink);
+            font-size: 1.25rem;
+            font-weight: 720;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .admin-section {
+            margin: 12px 0 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .admin-section h2,
+        .release-panel h2 {
+            margin-bottom: 5px;
+            color: var(--ink);
+            font-size: 1.25rem;
+            line-height: 1.25;
+            letter-spacing: -0.015em;
+        }
+
+        .section-hint,
+        .release-version,
+        .update-status {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.875rem;
+            line-height: 1.45;
+        }
+
+        .total-preview {
+            flex: 0 0 auto;
+            min-width: min(300px, 100%);
+            margin: 0;
+        }
+
+        #accountsEditor {
+            border-top: 1px solid var(--line);
+        }
+
         .account-editor {
-            margin-top: 18px;
-            padding: 20px;
-            border: 2px solid #e8e8e8;
-            border-radius: 14px;
+            min-width: 0;
+            margin: 0;
+            padding: 24px 0;
+            border: 0;
+            border-bottom: 1px solid var(--line);
         }
 
         .account-editor legend {
-            padding: 0 8px;
-            color: #21a038;
-            font-size: 16px;
-            font-weight: 700;
+            float: left;
+            width: 100%;
+            margin-bottom: 16px;
+            padding: 0;
+            color: var(--ink);
+            font-size: 1rem;
+            font-weight: 720;
+        }
+
+        .account-editor legend + * {
+            clear: both;
         }
 
         .account-fields {
             display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(120px, 1fr);
-            gap: 16px;
+            grid-template-columns:
+                minmax(180px, 1.7fr)
+                minmax(100px, 0.7fr)
+                minmax(150px, 1fr)
+                minmax(110px, 0.7fr)
+                minmax(210px, 1.2fr);
+            gap: 14px;
+            align-items: end;
         }
 
         .account-fields .form-group {
             margin-bottom: 0;
         }
 
-        @media (max-width: 620px) {
-            .admin-container {
-                padding: 28px 20px;
-            }
-
-            .account-fields {
-                grid-template-columns: 1fr;
-            }
+        .date-settings {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 8px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-            font-size: 14px;
+        .date-toggle {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            min-height: 28px;
+            margin: 0;
+            cursor: pointer;
+            user-select: none;
         }
 
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+        .date-toggle input {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            accent-color: var(--accent);
         }
 
-        input[type="text"]:focus,
-        input[type="number"]:focus {
-            outline: none;
-            border-color: #21a038;
+        .date-toggle-text {
+            color: var(--ink);
+            font-size: 0.875rem;
+            font-weight: 650;
         }
 
-        .balance-preview {
-            background: #f5f5f5;
-            padding: 15px;
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn-save,
+        .btn-reset,
+        .btn-update {
+            min-height: 48px;
+            padding: 12px 18px;
             border-radius: 10px;
-            margin-top: 10px;
-        }
-
-        .preview-label {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .preview-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #21a038;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 160ms ease-out, border-color 160ms ease-out;
         }
 
         .btn-save {
-            width: 100%;
-            padding: 16px;
-            background: #21a038;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            margin-top: 10px;
+            flex: 1 1 260px;
+            border: 1px solid var(--accent);
+            color: #fff;
+            background: var(--accent);
         }
 
         .btn-save:hover {
-            background: #1a8f2f;
-            transform: translateY(-2px);
+            border-color: var(--accent-hover);
+            background: var(--accent-hover);
         }
 
-        .btn-save:active {
-            transform: translateY(0);
+        .btn-save:active,
+        .btn-reset:active,
+        .btn-update:active {
+            transform: translateY(1px);
         }
 
         .btn-reset {
-            width: 100%;
-            padding: 14px;
+            flex: 0 1 220px;
+            border: 1px solid var(--line-strong);
+            color: var(--muted);
             background: transparent;
-            color: #666;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 10px;
         }
 
         .btn-reset:hover {
-            border-color: #ff4444;
-            color: #ff4444;
+            border-color: var(--danger);
+            color: var(--danger);
+            background: #f8e9e4;
         }
 
         .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
             display: none;
+            margin-top: 16px;
+            padding: 13px 15px;
+            border-radius: 10px;
+            color: var(--success-ink);
+            background: var(--success-bg);
+            text-align: center;
         }
 
         .success-message.show {
             display: block;
-            animation: fadeIn 0.3s;
+            animation: message-in 180ms ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
+        @keyframes message-in {
+            from { opacity: 0; transform: translateY(-4px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .nav-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #21a038;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .nav-link:hover {
-            text-decoration: underline;
-        }
-
         .release-panel {
-            margin-top: 28px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 18px;
+            margin-top: 32px;
             padding: 20px;
-            background: #f5f5f5;
-            border-radius: 14px;
+            border-radius: 12px;
+            background: var(--surface-strong);
         }
 
-        .release-panel h2 {
-            margin-bottom: 6px;
-            color: #222;
-            font-size: 18px;
-        }
-
-        .release-version,
-        .update-status {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.45;
+        .release-copy {
+            min-width: 0;
         }
 
         .btn-update {
-            width: 100%;
-            min-height: 48px;
-            margin-top: 16px;
-            padding: 12px 16px;
-            border: 2px solid #21a038;
-            border-radius: 12px;
-            background: white;
-            color: #21a038;
-            font: inherit;
-            font-weight: 700;
-            cursor: pointer;
+            min-width: 210px;
+            border: 1px solid var(--accent);
+            color: var(--accent-hover);
+            background: var(--surface);
         }
 
         .btn-update:hover {
-            background: #ecf8ee;
+            background: var(--accent-soft);
         }
 
         .btn-update:disabled {
-            border-color: #b8c6bb;
-            color: #849087;
+            border-color: var(--line);
+            color: var(--muted);
             cursor: wait;
+            opacity: 0.7;
         }
 
         .update-status {
+            grid-column: 1 / -1;
             min-height: 20px;
-            margin-top: 10px;
+        }
+
+        @media (max-width: 980px) {
+            .overview-fields {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .overview-fields .form-group:first-child {
+                grid-column: 1 / -1;
+            }
+
+            .account-fields {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .date-settings {
+                grid-column: 1 / -1;
+                grid-template-columns: minmax(180px, 0.8fr) minmax(220px, 1fr);
+                align-items: end;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .admin-container {
+                padding: 20px 14px 36px;
+            }
+
+            .admin-header,
+            .section-header {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .nav-link,
+            .total-preview {
+                width: 100%;
+            }
+
+            .nav-link {
+                text-align: center;
+            }
+
+            .overview-fields,
+            .account-fields,
+            .date-settings,
+            .release-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-fields .form-group:first-child,
+            .date-settings,
+            .update-status {
+                grid-column: auto;
+            }
+
+            .account-editor {
+                padding: 22px 0;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-save,
+            .btn-reset {
+                flex: none;
+                width: 100%;
+            }
+
+            .btn-update {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
     <div class="admin-container">
-        <h1>⚙️ Админ-панель</h1>
-        <p class="subtitle">Управление значениями на экранах приложения</p>
+        <header class="admin-header">
+            <div class="admin-heading">
+                <h1>Настройки приложения</h1>
+                <p class="subtitle">Имя, балансы и вклады сохраняются только на этом устройстве.</p>
+            </div>
+            <a href="Main.htm" class="nav-link">← Вернуться в приложение</a>
+        </header>
 
         <form id="adminForm">
-            <div class="form-group">
-                <label for="userFirstName">Имя на приветственном экране</label>
-                <input type="text" id="userFirstName" maxlength="40" autocomplete="off" placeholder="Например: Пётр" required>
-            </div>
-
-            <div class="form-group">
-                <label for="walletBalance">Баланс кошелька (₽)</label>
-                <input type="text" id="walletBalance" inputmode="decimal" placeholder="Например: 1 964,77" required>
-                <div class="balance-preview">
-                    <div class="preview-label">Предпросмотр:</div>
-                    <div class="preview-value" id="walletPreview">1 964,77 ₽</div>
+            <div class="overview-fields">
+                <div class="form-group">
+                    <label for="userFirstName">Имя на приветственном экране</label>
+                    <input type="text" id="userFirstName" maxlength="40" autocomplete="off" placeholder="Например: Пётр" required>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="sberbonusBalance">Бонусы СберСпасибо</label>
-                <input type="text" id="sberbonusBalance" inputmode="numeric" placeholder="Например: 111" required>
-                <div class="balance-preview">
-                    <div class="preview-label">Предпросмотр:</div>
-                    <div class="preview-value" id="sberbonusPreview">111</div>
+                <div class="form-group">
+                    <label for="walletBalance">Баланс кошелька (₽)</label>
+                    <input type="text" id="walletBalance" inputmode="decimal" placeholder="Например: 1 964,77" required>
+                    <div class="balance-preview">
+                        <div class="preview-label">Предпросмотр</div>
+                        <div class="preview-value" id="walletPreview">1 964,77 ₽</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sberbonusBalance">Бонусы СберСпасибо</label>
+                    <input type="text" id="sberbonusBalance" inputmode="numeric" placeholder="Например: 111" required>
+                    <div class="balance-preview">
+                        <div class="preview-label">Предпросмотр</div>
+                        <div class="preview-value" id="sberbonusPreview">111</div>
+                    </div>
                 </div>
             </div>
 
             <section class="admin-section" aria-labelledby="savingsSettingsTitle">
-                <h2 id="savingsSettingsTitle">Накопления</h2>
-                <p class="section-hint">Настройки экрана «Накопления». Все суммы форматируются автоматически.</p>
-
-                <div class="balance-preview form-group">
-                    <div class="preview-label">Всего средств — кошелёк и три счёта:</div>
-                    <div class="preview-value" id="savingsTotalPreview">182 464,99 ₽</div>
+                <div class="section-header">
+                    <div>
+                        <h2 id="savingsSettingsTitle">Вклады и счета</h2>
+                        <p class="section-hint">Суммы форматируются автоматически. Дату можно включить отдельно для каждого вклада.</p>
+                    </div>
+                    <div class="balance-preview total-preview">
+                        <div class="preview-label">Всего средств с учётом кошелька</div>
+                        <div class="preview-value" id="savingsTotalPreview">182 464,99 ₽</div>
+                    </div>
                 </div>
 
                 <div id="accountsEditor"></div>
             </section>
 
-            <button type="submit" class="btn-save">💾 Сохранить изменения</button>
-            <button type="button" class="btn-reset" id="btnReset">🔄 Сбросить к исходным</button>
+            <div class="form-actions">
+                <button type="submit" class="btn-save">Сохранить изменения</button>
+                <button type="button" class="btn-reset" id="btnReset">Сбросить настройки</button>
+            </div>
 
             <div class="success-message" id="successMessage">
-                ✅ Изменения успешно сохранены! Обновите главную страницу.
+                Изменения сохранены на этом устройстве.
             </div>
         </form>
 
         <section class="release-panel" aria-labelledby="releaseTitle">
-            <h2 id="releaseTitle">Версия приложения</h2>
-            <p class="release-version" id="releaseVersion">Определяем установленный релиз…</p>
+            <div class="release-copy">
+                <h2 id="releaseTitle">Версия приложения</h2>
+                <p class="release-version" id="releaseVersion">Определяем установленный релиз…</p>
+            </div>
             <button type="button" class="btn-update" id="btnUpdateApp">Обновить приложение</button>
             <p class="update-status" id="updateStatus" role="status" aria-live="polite"></p>
         </section>
-
-        <a href="Main.htm" class="nav-link">← Вернуться в приложение</a>
     </div>
 
     <script>
@@ -351,10 +578,25 @@
                 number: '2838',
                 amount: '15 000,22',
                 rate: '0,01',
+                showEndDate: true,
                 endDate: '2026-11-17'
             },
-            { name: 'Вклад «Лучший %»', number: '4812', amount: '120 000,00', rate: '14,5' },
-            { name: 'Накопительный счет', number: '9074', amount: '45 500,00', rate: '12' }
+            {
+                name: 'Вклад «Лучший %»',
+                number: '4812',
+                amount: '120 000,00',
+                rate: '14,5',
+                showEndDate: false,
+                endDate: '2026-11-17'
+            },
+            {
+                name: 'Накопительный счет',
+                number: '9074',
+                amount: '45 500,00',
+                rate: '12',
+                showEndDate: false,
+                endDate: '2026-11-17'
+            }
         ];
 
         // Элементы формы
@@ -601,12 +843,16 @@
                             <label for="accountRate${number}">Ставка (%)</label>
                             <input type="text" id="accountRate${number}" inputmode="decimal" data-account-rate required>
                         </div>
-                        ${index === 0 ? `
+                        <div class="date-settings">
+                            <label class="date-toggle" for="accountShowEndDate${number}">
+                                <input type="checkbox" id="accountShowEndDate${number}" data-account-date-toggle="${index}">
+                                <span class="date-toggle-text">Показывать дату</span>
+                            </label>
                             <div class="form-group">
                                 <label for="accountEndDate${number}">Дата окончания</label>
-                                <input type="date" id="accountEndDate${number}" required>
+                                <input type="date" id="accountEndDate${number}">
                             </div>
-                        ` : ''}
+                        </div>
                     </div>
                 `;
                 accountsEditor.appendChild(fieldset);
@@ -617,13 +863,20 @@
             try {
                 const saved = JSON.parse(localStorage.getItem(SAVINGS_ACCOUNTS_KEY));
                 if (Array.isArray(saved) && saved.length === 3) {
-                    return DEFAULT_SAVINGS_ACCOUNTS.map((defaults, index) => ({
-                        ...defaults,
-                        ...saved[index],
-                        name: index === 0 && saved[index].name === 'Сберегательный счет'
-                            ? 'Счёт'
-                            : (saved[index].name || defaults.name)
-                    }));
+                    return DEFAULT_SAVINGS_ACCOUNTS.map((defaults, index) => {
+                        const savedAccount = saved[index] || {};
+                        const hasVisibilitySetting = typeof savedAccount.showEndDate === 'boolean';
+                        return {
+                            ...defaults,
+                            ...savedAccount,
+                            name: index === 0 && savedAccount.name === 'Сберегательный счет'
+                                ? 'Счёт'
+                                : (savedAccount.name || defaults.name),
+                            showEndDate: hasVisibilitySetting
+                                ? savedAccount.showEndDate
+                                : Boolean(savedAccount.endDate)
+                        };
+                    });
                 }
             } catch (e) {
                 console.log('Не удалось прочитать настройки счетов', e);
@@ -638,8 +891,17 @@
                 number: document.getElementById(`accountNumber${number}`),
                 amount: document.getElementById(`accountAmount${number}`),
                 rate: document.getElementById(`accountRate${number}`),
+                showEndDate: document.getElementById(`accountShowEndDate${number}`),
                 endDate: document.getElementById(`accountEndDate${number}`)
             };
+        }
+
+        function syncDateField(index) {
+            const fields = getAccountFields(index);
+            const enabled = Boolean(fields.showEndDate && fields.showEndDate.checked);
+            fields.endDate.disabled = !enabled;
+            fields.endDate.required = enabled;
+            fields.endDate.setAttribute('aria-disabled', String(!enabled));
         }
 
         function loadSavingsFields() {
@@ -651,9 +913,9 @@
                 fields.number.value = account.number;
                 fields.amount.value = formatAmount(account.amount, true);
                 fields.rate.value = formatRate(account.rate);
-                if (fields.endDate) {
-                    fields.endDate.value = account.endDate || DEFAULT_SAVINGS_ACCOUNTS[index].endDate;
-                }
+                fields.showEndDate.checked = Boolean(account.showEndDate);
+                fields.endDate.value = account.endDate || DEFAULT_SAVINGS_ACCOUNTS[index].endDate;
+                syncDateField(index);
             });
             updateComputedSavingsTotal();
         }
@@ -665,11 +927,10 @@
                     name: fields.name.value.trim(),
                     number: fields.number.value.trim(),
                     amount: formatAmount(fields.amount.value, true),
-                    rate: formatRate(fields.rate.value)
+                    rate: formatRate(fields.rate.value),
+                    showEndDate: fields.showEndDate.checked,
+                    endDate: fields.endDate.value
                 };
-                if (fields.endDate) {
-                    account.endDate = fields.endDate.value;
-                }
                 return account;
             });
         }
@@ -769,7 +1030,7 @@
             if (!firstName || !wallet || !sberbonus ||
                 savingsAccounts.some((account, index) =>
                     !account.name || !account.number || !account.amount || !account.rate ||
-                    (index === 0 && !account.endDate)
+                    (account.showEndDate && !account.endDate)
                 )) {
                 alert('Пожалуйста, заполните все поля');
                 return;
@@ -797,11 +1058,11 @@
                 loadProfileFields();
                 loadSavingsFields();
                 window.dispatchEvent(new Event('savings-config-updated'));
-                successMessage.textContent = '🔄 Значения сброшены к исходным!';
+                successMessage.textContent = 'Настройки сброшены к исходным.';
                 successMessage.classList.add('show');
                 setTimeout(() => {
                     successMessage.classList.remove('show');
-                    successMessage.textContent = '✅ Изменения успешно сохранены! Обновите главную страницу.';
+                    successMessage.textContent = 'Изменения сохранены на этом устройстве.';
                 }, 3000);
             }
         });
@@ -836,6 +1097,11 @@
             if (event.target.id.startsWith('accountNumber')) {
                 event.target.value = event.target.value.replace(/\D/g, '');
             }
+        });
+
+        accountsEditor.addEventListener('change', function(event) {
+            if (!event.target.matches('[data-account-date-toggle]')) return;
+            syncDateField(Number(event.target.dataset.accountDateToggle));
         });
 
         // Инициализация
