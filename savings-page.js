@@ -6,7 +6,7 @@
   var DEFAULT_WALLET = "1 964,77";
   var DEFAULT_ACCOUNTS = [
     {
-      name: "Сберегательный счет",
+      name: "Счёт",
       number: "2838",
       amount: "15 000,22",
       rate: "0,01",
@@ -31,7 +31,11 @@
       var saved = JSON.parse(localStorage.getItem(ACCOUNTS_KEY));
       if (Array.isArray(saved) && saved.length === 3) {
         return DEFAULT_ACCOUNTS.map(function (defaults, index) {
-          return Object.assign({}, defaults, saved[index]);
+          var account = Object.assign({}, defaults, saved[index]);
+          if (index === 0 && account.name === "Сберегательный счет") {
+            account.name = "Счёт";
+          }
+          return account;
         });
       }
     } catch (e) {}

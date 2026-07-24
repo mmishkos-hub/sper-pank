@@ -132,10 +132,7 @@ html[data-static-page] #assistant-region {
 }
 
 html[data-static-page="savings"] .pwa-account-end-date {
-  position: absolute;
-  top: calc(100% + 2px);
-  right: 0;
-  margin: 0;
+  margin: 2px 0 0;
   color: var(--ds_textSecondary);
   font-family: var(--fontFamilyText);
   font-size: 13px;
@@ -146,7 +143,11 @@ html[data-static-page="savings"] .pwa-account-end-date {
 }
 
 html[data-static-page="savings"] .pwa-account-rate-with-date {
-  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 12px;
   text-align: right;
 }
 

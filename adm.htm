@@ -347,7 +347,7 @@
         const DEFAULT_SBERBONUS = '111';
         const DEFAULT_SAVINGS_ACCOUNTS = [
             {
-                name: 'Сберегательный счет',
+                name: 'Счёт',
                 number: '2838',
                 amount: '15 000,22',
                 rate: '0,01',
@@ -619,7 +619,10 @@
                 if (Array.isArray(saved) && saved.length === 3) {
                     return DEFAULT_SAVINGS_ACCOUNTS.map((defaults, index) => ({
                         ...defaults,
-                        ...saved[index]
+                        ...saved[index],
+                        name: index === 0 && saved[index].name === 'Сберегательный счет'
+                            ? 'Счёт'
+                            : (saved[index].name || defaults.name)
                     }));
                 }
             } catch (e) {
