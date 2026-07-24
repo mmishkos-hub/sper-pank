@@ -117,10 +117,17 @@
       var link = item.querySelector("a");
       var endDate = index === 0 ? formatDate(account.endDate) : "";
 
+      item.querySelectorAll(".pwa-account-end-date").forEach(function (node) {
+        node.remove();
+      });
+      if (rateContainer) {
+        rateContainer.classList.remove("pwa-account-rate-with-date");
+      }
       if (amount) amount.textContent = account.amount + " ₽";
       if (title) title.textContent = account.name + " •• " + account.number;
       if (rate) rate.textContent = account.rate + "%";
       if (rateContainer && endDate) {
+        rateContainer.classList.add("pwa-account-rate-with-date");
         var date = document.createElement("p");
         date.className = "pwa-account-end-date";
         date.textContent = "до " + endDate;

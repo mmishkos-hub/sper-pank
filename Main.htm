@@ -180,17 +180,16 @@ html[data-static-page] iframe[style*="left:-800px"] {
   }
 
   html[data-static-page] main.scaffold__main {
-    padding-top: calc(64px + env(safe-area-inset-top, 0px));
+    padding-top: 64px;
   }
 
   html[data-static-page] #scaffold-header-main.scaffold__header {
     position: fixed !important;
-    top: 0 !important;
+    top: env(safe-area-inset-top, 0px) !important;
     left: 0 !important;
     right: 0 !important;
     width: 100%;
     margin: 0 !important;
-    padding-top: env(safe-area-inset-top, 0px) !important;
     box-sizing: border-box;
     z-index: var(--z-index-header-navigation-mobile) !important;
     background: rgba(241, 241, 241, 0.96) !important;
