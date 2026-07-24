@@ -13,6 +13,7 @@
     var path = decodeURIComponent(location.pathname.split('/').pop() || '');
     if (/Savings/i.test(path) || /savings/i.test(location.pathname)) {
       document.documentElement.setAttribute('data-static-page', 'savings');
+      document.documentElement.style.backgroundColor = '#f1f1f1';
     } else {
       document.documentElement.setAttribute('data-static-page', 'main');
     }
@@ -20,6 +21,30 @@
 })();
 </script>
 <!-- static-pwa-guard-end -->
+<!-- static-theme-color-start -->
+<script>
+(function () {
+  var COLOR = '#F1F1F1';
+  function applyThemeColor() {
+    var nodes = document.querySelectorAll('meta[name="theme-color"]');
+    if (!nodes.length) {
+      var meta = document.createElement('meta');
+      meta.setAttribute('name', 'theme-color');
+      meta.setAttribute('content', COLOR);
+      document.head.appendChild(meta);
+      return;
+    }
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].setAttribute('content', COLOR);
+    }
+  }
+  applyThemeColor();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyThemeColor);
+  }
+})();
+</script>
+<!-- static-theme-color-end -->
 <!-- static-avatar-fix-start -->
 <script>
 (function () {
@@ -189,33 +214,196 @@ html[data-static-page] iframe[style*="left:-800px"] {
   }
 }
 
-@media (max-width: 480px) {
-  html[data-static-page] main.scaffold__main {
-    padding-top: 64px;
+@media (max-width: 900px) {
+  html[data-static-page="savings"],
+  html[data-static-page="savings"] body {
+    background: #f1f1f1 !important;
+    /* Captured CSS pads body with idt-4xl + safe-area — that doubled the title gap */
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
-  html[data-static-page] #scaffold-header-main.scaffold__header {
+  html[data-static-page="savings"] main.scaffold__main {
+    /* Cleared by JS to the search-row bottom; keep a tight fallback */
+    padding-top: calc(48px + max(env(safe-area-inset-top, 0px), 28px)) !important;
+  }
+
+  /*
+   * Opaque chrome from the physical top through the search row.
+   * Kill captured padding/height (idt-4xl + --header-height) that left a hollow gap
+   * under the icons. Scrolled content passes underneath and is covered.
+   */
+  html[data-static-page="savings"] #scaffold-header-main.scaffold__header {
     position: fixed !important;
-    top: env(safe-area-inset-top, 0px) !important;
+    top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    width: 100%;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
     margin: 0 !important;
-    box-sizing: border-box;
-    z-index: var(--z-index-header-navigation-mobile) !important;
+    padding: max(env(safe-area-inset-top, 0px), 28px) 16px 8px !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
     background: #f1f1f1 !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
-    box-shadow: none;
+    box-shadow: none !important;
     isolation: isolate;
+    display: flex !important;
+    align-items: center !important;
   }
 
-  html[data-static-page="savings"] #main .cCwwo7Ea {
+  html[data-static-page="savings"] #scaffold-header-main .scaffold__header-main {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  html[data-static-page="savings"] #scaffold-header-main.scaffold__header::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Empty scaffold slots between header and title — don't invent extra gap */
+  html[data-static-page="savings"] .scaffold__region-header-header,
+  html[data-static-page="savings"] #app-bar-headers,
+  html[data-static-page="savings"] #scaffold-notifications {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html[data-static-page="savings"] #main .Xx5wekhe {
     margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-left: 8.5px !important;
+    padding-right: 8.5px !important;
+    box-sizing: border-box !important;
+  }
+
+  html[data-static-page="savings"] #main .cCwwo7Ea,
+  html[data-static-page="savings"] #main .Xx5wekhe > .cCwwo7Ea {
+    margin: 8px 0 16px !important;
+    padding-top: 0 !important;
+    /* Match Main «Кошелёк» / hide-balances (ytAP41jd idt-4xl = 16px): container already has 8.5px */
+    padding-left: 7.5px !important;
+    padding-right: 7.5px !important;
+  }
+
+  /* All Savings content cards — keep 8.5px from screen edge */
+  html[data-static-page="savings"] #main .MWisPwSf,
+  html[data-static-page="savings"] #main .wifeRTkh {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 </style>
 <!-- static-pwa-css-end -->
+<!-- static-header-offset-start -->
+<script>
+(function () {
+  var MIN_TOP = 28;
+
+  function measureSafeTop() {
+    try {
+      var probe = document.createElement("div");
+      probe.style.cssText =
+        "position:fixed;left:0;top:0;width:0;visibility:hidden;pointer-events:none;" +
+        "height:env(safe-area-inset-top, 0px);padding:0;margin:0;border:0;";
+      document.documentElement.appendChild(probe);
+      var h = probe.getBoundingClientRect().height || 0;
+      probe.parentNode.removeChild(probe);
+      return h;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function apply() {
+    var sat = Math.max(measureSafeTop(), MIN_TOP);
+    var header = document.getElementById("scaffold-header-main");
+    var row = document.getElementById("header-main-content");
+    var inner = header && header.querySelector(".scaffold__header-main");
+
+    if (document.body) {
+      document.body.style.setProperty("padding-top", "0px", "important");
+      document.body.style.setProperty("padding-left", "0px", "important");
+      document.body.style.setProperty("padding-right", "0px", "important");
+    }
+
+    if (header) {
+      // Opaque bar from the physical top — covers scrolled content under search
+      header.style.setProperty("position", "fixed", "important");
+      header.style.setProperty("top", "0px", "important");
+      header.style.setProperty("left", "0px", "important");
+      header.style.setProperty("right", "0px", "important");
+      header.style.setProperty("width", "100%", "important");
+      header.style.setProperty("height", "auto", "important");
+      header.style.setProperty("min-height", "0px", "important");
+      header.style.setProperty("margin", "0px", "important");
+      // Drop captured idt-4xl padding under the icons (was the hollow gap)
+      header.style.setProperty("padding", sat + "px 16px 8px", "important");
+      header.style.setProperty("background", "#f1f1f1", "important");
+      header.style.setProperty("box-shadow", "none", "important");
+      header.style.setProperty("-webkit-backdrop-filter", "none", "important");
+      header.style.setProperty("backdrop-filter", "none", "important");
+      header.style.setProperty("z-index", "1000", "important");
+    }
+    if (inner) {
+      inner.style.setProperty("padding", "0px", "important");
+    }
+
+    // Clear content to the bottom of the opaque chrome (icons/search row)
+    var clearance = row
+      ? Math.ceil(row.getBoundingClientRect().bottom)
+      : header
+        ? Math.ceil(header.getBoundingClientRect().bottom)
+        : sat + 48;
+    // Include the 8px header padding-bottom already in header box
+    if (header) {
+      clearance = Math.max(clearance, Math.ceil(header.getBoundingClientRect().bottom));
+    }
+
+    var main = document.querySelector("main.scaffold__main");
+    if (main) {
+      main.style.setProperty("padding-top", clearance + "px", "important");
+    }
+
+    var title = document.querySelector("#main .cCwwo7Ea");
+    if (title) {
+      title.style.setProperty("margin", "8px 0 16px", "important");
+      title.style.setProperty("padding-top", "0px", "important");
+      title.style.setProperty("padding-left", "7.5px", "important");
+      title.style.setProperty("padding-right", "7.5px", "important");
+    }
+
+    ["scaffold-notifications", "app-bar-headers"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.style.setProperty("display", "none", "important");
+        el.style.setProperty("height", "0px", "important");
+      }
+    });
+    document.querySelectorAll(".scaffold__region-header-header").forEach(function (el) {
+      el.style.setProperty("display", "none", "important");
+      el.style.setProperty("height", "0px", "important");
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", apply);
+  } else {
+    apply();
+  }
+  window.addEventListener("resize", apply);
+  window.addEventListener("orientationchange", apply);
+  setTimeout(apply, 50);
+  setTimeout(apply, 300);
+})();
+</script>
+<!-- static-header-offset-end -->
 
 <!-- pwa-local-start -->
 <link rel="manifest" href="manifest.webmanifest">

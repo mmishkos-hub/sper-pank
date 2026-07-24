@@ -14,11 +14,55 @@
       document.documentElement.setAttribute('data-static-page', 'savings');
     } else {
       document.documentElement.setAttribute('data-static-page', 'main');
+      // Don't force a solid fill — the continuous gradient paints status + header.
     }
   } catch (e) {}
 })();
 </script>
 <!-- static-pwa-guard-end -->
+<!-- static-lock-gate-start -->
+<style id="static-lock-gate-css">
+/* Hide Main chrome until welcome lock resolves — prevents flash while HTML streams */
+html[data-static-page="main"]:not(.online-unlocked) .scaffold__section,
+html[data-static-page="main"]:not(.online-unlocked) #assistant-region {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+</style>
+<script>
+(function () {
+  try {
+    if (sessionStorage.getItem("onlineAppUnlocked_v1") === "1") {
+      document.documentElement.classList.add("online-unlocked");
+    }
+  } catch (e) {}
+})();
+</script>
+<!-- static-lock-gate-end -->
+<!-- static-theme-color-start -->
+<script>
+(function () {
+  var COLOR = '#d6e0ff';
+  function applyThemeColor() {
+    var nodes = document.querySelectorAll('meta[name="theme-color"]');
+    if (!nodes.length) {
+      var meta = document.createElement('meta');
+      meta.setAttribute('name', 'theme-color');
+      meta.setAttribute('content', COLOR);
+      document.head.appendChild(meta);
+      return;
+    }
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].setAttribute('content', COLOR);
+    }
+  }
+  applyThemeColor();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyThemeColor);
+  }
+})();
+</script>
+<!-- static-theme-color-end -->
 <!-- static-avatar-fix-start -->
 <script>
 (function () {
@@ -64,6 +108,9 @@
       if (done) return;
       done = true;
       document.documentElement.classList.remove('fonts-pending');
+      if (typeof window.__pwaApplyHeaderOffset === 'function') {
+        window.__pwaApplyHeaderOffset();
+      }
     }
     var maxWait = setTimeout(reveal, 800);
     function waitFonts() {
@@ -131,14 +178,15 @@ html[data-static-page] #assistant-region {
 }
 
 /* Keep the installed PWA canvas neutral, including the iOS safe area. */
-html[data-static-page],
-html[data-static-page] body {
+html[data-static-page]:not([data-static-page="main"]),
+html[data-static-page]:not([data-static-page="main"]) body {
   background: #f1f1f1 !important;
 }
 
-/* Match the system status-bar canvas to the first color of Main's header. */
-html[data-static-page="main"] {
-  background-color: #d6e0ff !important;
+/* Main: base canvas; mobile gradient overlays this in the media query */
+html[data-static-page="main"],
+html[data-static-page="main"] body {
+  background-color: #f1f1f1 !important;
 }
 
 /* Keep in-page carousels swipeable */
@@ -173,40 +221,123 @@ html[data-static-page] iframe[style*="left:-800px"] {
   }
 }
 
-@media (max-width: 480px) {
-  html[data-static-page="main"] {
-    --main-top-gradient: linear-gradient(135deg, #d6e0ff 0%, #f6e4f1 100%);
-    --main-top-gradient-height: 360px;
+html[data-static-page="main"] {
+  --main-top-gradient: linear-gradient(135deg, #d6e0ff 0%, #f6e4f1 100%);
+  --main-top-gradient-height: 360px;
+  --main-chrome-fill: #d6e0ff;
+}
+
+@media (max-width: 900px) {
+  /*
+   * Stable continuous Main wash:
+   * - Same gradient on header + body::before (size 100% x 360px from top)
+   * - No background-attachment:fixed (avoids mobile scroll flicker)
+   * - Opaque header still covers scrolled content under search
+   */
+  html[data-static-page="main"],
+  html[data-static-page="main"] body {
+    background: #f1f1f1 !important;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
-  html[data-static-page] main.scaffold__main {
-    padding-top: 64px;
+  html[data-static-page="main"] body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--main-top-gradient-height);
+    background-color: #f1f1f1;
+    /* Diagonal wash + soft fade into page gray at the bottom */
+    background-image:
+      linear-gradient(180deg, rgba(241, 241, 241, 0) 55%, #f1f1f1 100%),
+      var(--main-top-gradient);
+    background-size: 100% 100%, 100% var(--main-top-gradient-height);
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll;
+    pointer-events: none;
+    z-index: 0;
+    transform: translateZ(0);
   }
 
-  html[data-static-page] #scaffold-header-main.scaffold__header {
-    position: fixed !important;
-    top: env(safe-area-inset-top, 0px) !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100%;
-    margin: 0 !important;
-    box-sizing: border-box;
-    z-index: var(--z-index-header-navigation-mobile) !important;
-    background: rgba(241, 241, 241, 0.96) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    backdrop-filter: blur(16px) !important;
-    box-shadow: 0 1px 0 rgba(38, 38, 38, 0.08);
-    isolation: isolate;
+  html[data-static-page="main"] .scaffold__section,
+  html[data-static-page="main"] main.scaffold__main {
+    position: relative;
+    z-index: 1;
+  }
+
+  html[data-static-page="main"] main.scaffold__main {
+    padding-top: calc(48px + max(env(safe-area-inset-top, 0px), 28px)) !important;
   }
 
   html[data-static-page="main"] #scaffold-header-main.scaffold__header {
-    background: var(--main-top-gradient) center top / 100vw var(--main-top-gradient-height) no-repeat !important;
-    box-shadow: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: max(env(safe-area-inset-top, 0px), 28px) 16px 8px !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+    /* Same gradient slice as the wash — seamless join under search */
+    background-color: var(--main-chrome-fill) !important;
+    background-image: var(--main-top-gradient) !important;
+    background-size: 100% var(--main-top-gradient-height) !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    isolation: isolate;
+    display: flex !important;
+    align-items: center !important;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  html[data-static-page="main"] #scaffold-header-main .scaffold__header-main {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  html[data-static-page="main"] #scaffold-header-main.scaffold__header::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  html[data-static-page="main"] .scaffold__region-header-header,
+  html[data-static-page="main"] #app-bar-headers,
+  html[data-static-page="main"] #scaffold-notifications {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   html[data-static-page="main"] #main .L6qMFkEL.LPFbIg6s {
-    background: var(--main-top-gradient) center -8px / 100vw var(--main-top-gradient-height) no-repeat !important;
-    padding-top: 72px !important;
+    /* Let the fixed wash show through — continuous with header gradient */
+    background: transparent !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-top: 8px !important;
+  }
+
+  /* From «Переводы» onward — 8.5px inset from screen edges */
+  html[data-static-page="main"] #main .wifeRTkh {
+    margin-left: 8.5px !important;
+    margin-right: 8.5px !important;
+    width: auto !important;
+    max-width: calc(100% - 17px) !important;
+    box-sizing: border-box !important;
   }
 
   html[data-static-page="main"].online-main-entering #main .uXANOpJ5 > :nth-child(n + 3) {
@@ -236,7 +367,7 @@ html[data-static-page] iframe[style*="left:-800px"] {
   }
 }
 
-@media (max-width: 480px) and (prefers-reduced-motion: reduce) {
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
   html[data-static-page="main"].online-main-entering #main .uXANOpJ5 > :nth-child(n + 3),
   html[data-static-page="main"].online-main-entering .scaffold__aside-left .scaffold__nav {
     opacity: 1 !important;
@@ -246,6 +377,197 @@ html[data-static-page] iframe[style*="left:-800px"] {
 }
 </style>
 <!-- static-pwa-css-end -->
+<!-- static-header-offset-start -->
+<script>
+(function () {
+  var MIN_TOP = 28;
+  var WALLET_GAP = 8;
+  var CHROME_FILL = "#d6e0ff";
+  var GRADIENT = "linear-gradient(135deg, #d6e0ff 0%, #f6e4f1 100%)";
+  var GRADIENT_HEIGHT = "360px";
+  var chromeReady = false;
+  var lastWidth = 0;
+  var lastClearance = 0;
+  var lastHeaderH = 0;
+  var resizeTimer = 0;
+  var observing = false;
+
+  function measureSafeTop() {
+    try {
+      var probe = document.createElement("div");
+      probe.style.cssText =
+        "position:fixed;left:0;top:0;width:0;visibility:hidden;pointer-events:none;" +
+        "height:env(safe-area-inset-top, 0px);padding:0;margin:0;border:0;";
+      document.documentElement.appendChild(probe);
+      var h = probe.getBoundingClientRect().height || 0;
+      probe.parentNode.removeChild(probe);
+      return h;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function paintChrome(header, inner, sat) {
+    if (!header) return;
+    header.style.setProperty("position", "fixed", "important");
+    header.style.setProperty("top", "0px", "important");
+    header.style.setProperty("left", "0px", "important");
+    header.style.setProperty("right", "0px", "important");
+    header.style.setProperty("width", "100%", "important");
+    header.style.setProperty("height", "auto", "important");
+    header.style.setProperty("min-height", "0px", "important");
+    header.style.setProperty("margin", "0px", "important");
+    header.style.setProperty("padding", sat + "px 16px 8px", "important");
+    // Same gradient geometry as body::before — seamless with the area below
+    header.style.setProperty("background-color", CHROME_FILL, "important");
+    header.style.setProperty("background-image", GRADIENT, "important");
+    header.style.setProperty("background-size", "100% " + GRADIENT_HEIGHT, "important");
+    header.style.setProperty("background-position", "center top", "important");
+    header.style.setProperty("background-repeat", "no-repeat", "important");
+    header.style.setProperty("background-attachment", "scroll", "important");
+    header.style.setProperty("box-shadow", "none", "important");
+    header.style.setProperty("-webkit-backdrop-filter", "none", "important");
+    header.style.setProperty("backdrop-filter", "none", "important");
+    header.style.setProperty("z-index", "1000", "important");
+    header.style.setProperty("transform", "translateZ(0)", "important");
+    if (inner) {
+      inner.style.setProperty("padding", "0px", "important");
+    }
+  }
+
+  function apply(force) {
+    var header = document.getElementById("scaffold-header-main");
+    // Head script can fire before body nodes exist
+    if (!header) return;
+
+    var width = window.innerWidth || 0;
+    var headerH = Math.ceil(header.getBoundingClientRect().height || 0);
+    // Ignore address-bar show/hide, but remeasure when header height settles
+    if (
+      !force &&
+      chromeReady &&
+      Math.abs(width - lastWidth) < 8 &&
+      Math.abs(headerH - lastHeaderH) < 2
+    ) {
+      return;
+    }
+
+    var sat = Math.max(measureSafeTop(), MIN_TOP);
+    var row = document.getElementById("header-main-content");
+    var inner = header.querySelector(".scaffold__header-main");
+
+    if (document.body) {
+      document.body.style.setProperty("padding-top", "0px", "important");
+      document.body.style.setProperty("padding-left", "0px", "important");
+      document.body.style.setProperty("padding-right", "0px", "important");
+      document.body.style.setProperty("background", "#f1f1f1", "important");
+      document.body.style.setProperty("background-image", "none", "important");
+    }
+
+    paintChrome(header, inner, sat);
+    // Force layout before measuring — first paint otherwise used pre-padding height
+    void header.offsetHeight;
+
+    var clearance = Math.ceil(header.getBoundingClientRect().bottom);
+    if (row) {
+      clearance = Math.max(clearance, Math.ceil(row.getBoundingClientRect().bottom));
+    }
+    if (!clearance || clearance < sat + 36) {
+      clearance = sat + 48;
+    }
+
+    if (!force && lastClearance && Math.abs(clearance - lastClearance) < 2) {
+      lastWidth = width;
+      lastHeaderH = Math.ceil(header.getBoundingClientRect().height || 0);
+      chromeReady = true;
+      return;
+    }
+
+    var main = document.querySelector("main.scaffold__main");
+    if (main) {
+      main.style.setProperty("padding-top", clearance + "px", "important");
+    }
+
+    var wallet = document.querySelector("#main .L6qMFkEL.LPFbIg6s");
+    if (wallet) {
+      wallet.style.setProperty("margin-top", "0px", "important");
+      wallet.style.setProperty("margin-left", "0px", "important");
+      wallet.style.setProperty("margin-right", "0px", "important");
+      wallet.style.setProperty("padding-top", WALLET_GAP + "px", "important");
+      wallet.style.setProperty("background", "transparent", "important");
+    }
+
+    ["scaffold-notifications", "app-bar-headers"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.style.setProperty("display", "none", "important");
+        el.style.setProperty("height", "0px", "important");
+      }
+    });
+    document.querySelectorAll(".scaffold__region-header-header").forEach(function (el) {
+      el.style.setProperty("display", "none", "important");
+      el.style.setProperty("height", "0px", "important");
+    });
+
+    lastWidth = width;
+    lastClearance = clearance;
+    lastHeaderH = Math.ceil(header.getBoundingClientRect().height || 0);
+    chromeReady = true;
+    observeHeader(header);
+  }
+
+  function observeHeader(header) {
+    if (observing || !header || typeof ResizeObserver !== "function") return;
+    observing = true;
+    var roTimer = 0;
+    var ro = new ResizeObserver(function () {
+      clearTimeout(roTimer);
+      roTimer = setTimeout(function () {
+        apply(true);
+      }, 50);
+    });
+    ro.observe(header);
+    var row = document.getElementById("header-main-content");
+    if (row) ro.observe(row);
+  }
+
+  function schedule() {
+    apply(true);
+    requestAnimationFrame(function () {
+      apply(true);
+      requestAnimationFrame(function () {
+        apply(true);
+      });
+    });
+  }
+
+  window.__pwaApplyHeaderOffset = schedule;
+
+  function onResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      apply(false);
+    }, 200);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", schedule);
+  } else {
+    schedule();
+  }
+  window.addEventListener("resize", onResize);
+  window.addEventListener("orientationchange", function () {
+    setTimeout(schedule, 300);
+  });
+  window.addEventListener("pageshow", function () {
+    schedule();
+  });
+  setTimeout(schedule, 50);
+  setTimeout(schedule, 300);
+  setTimeout(schedule, 800);
+})();
+</script>
+<!-- static-header-offset-end -->
 
 <!-- pwa-local-start -->
 <link rel="manifest" href="manifest.webmanifest">
@@ -1419,7 +1741,12 @@ html.online-lock-open body {
 
   if (!force && sessionStorage.getItem(unlockedKey) === '1') {
     setThemeColor(mainThemeColor);
+    document.documentElement.classList.add('online-unlocked');
     screen.remove();
+    if (typeof window.__pwaApplyHeaderOffset === 'function') {
+      window.__pwaApplyHeaderOffset();
+      setTimeout(window.__pwaApplyHeaderOffset, 50);
+    }
     return;
   }
 
@@ -1434,6 +1761,7 @@ html.online-lock-open body {
   if (nameNode) nameNode.textContent = name;
   document.documentElement.classList.add('online-lock-open');
   document.documentElement.classList.add('online-main-entering');
+  document.documentElement.classList.remove('online-unlocked');
 
   function render() {
     dots.forEach(function (dot, index) {
@@ -1451,7 +1779,13 @@ html.online-lock-open body {
     sessionStorage.removeItem(hiddenAtKey);
     screen.classList.add('is-unlocking');
     document.documentElement.classList.remove('online-lock-open');
+    document.documentElement.classList.add('online-unlocked');
     document.removeEventListener('keydown', onKeydown);
+    if (typeof window.__pwaApplyHeaderOffset === 'function') {
+      window.__pwaApplyHeaderOffset();
+      setTimeout(window.__pwaApplyHeaderOffset, 50);
+      setTimeout(window.__pwaApplyHeaderOffset, 280);
+    }
     setTimeout(function () {
       document.documentElement.classList.add('online-main-enter-active');
     }, 260);
@@ -1460,9 +1794,15 @@ html.online-lock-open body {
     }, 420);
     setTimeout(function () {
       screen.remove();
+      if (typeof window.__pwaApplyHeaderOffset === 'function') {
+        window.__pwaApplyHeaderOffset();
+      }
     }, 680);
     setTimeout(function () {
       document.documentElement.classList.remove('online-main-entering', 'online-main-enter-active');
+      if (typeof window.__pwaApplyHeaderOffset === 'function') {
+        window.__pwaApplyHeaderOffset();
+      }
     }, 1250);
   }
 
